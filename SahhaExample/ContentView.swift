@@ -1,9 +1,4 @@
-//
-//  ContentView.swift
-//  SahhaExample
-//
-//  Created by Matthew on 2/10/22.
-//
+// Copyright © 2022 Sahha. All rights reserved.
 
 import SwiftUI
 import Sahha

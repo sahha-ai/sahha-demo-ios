@@ -117,6 +117,7 @@
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1320;
 				LastUpgradeCheck = 1320;
+				ORGANIZATIONNAME = Sahha;
 				TargetAttributes = {
 					34BF335227B6159500350785 = {
 						CreatedOnToolsVersion = 13.2;
