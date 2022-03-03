@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		343BE21B27D042690064C9F2 /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343BE21A27D042690064C9F2 /* AuthenticationView.swift */; };
+		343BE21D27D076760064C9F2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343BE21C27D076760064C9F2 /* Extensions.swift */; };
 		34BF335727B6159500350785 /* SahhaExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BF335627B6159500350785 /* SahhaExampleApp.swift */; };
 		34BF335927B6159500350785 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BF335827B6159500350785 /* ContentView.swift */; };
 		34BF335B27B6159900350785 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34BF335A27B6159900350785 /* Assets.xcassets */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		343BE21A27D042690064C9F2 /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
+		343BE21C27D076760064C9F2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		34BF335327B6159500350785 /* Sahha X.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sahha X.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		34BF335627B6159500350785 /* SahhaExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SahhaExampleApp.swift; sourceTree = "<group>"; };
 		34BF335827B6159500350785 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -39,6 +43,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		343BE21927D042460064C9F2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				343BE21A27D042690064C9F2 /* AuthenticationView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		34BF334A27B6159500350785 = {
 			isa = PBXGroup;
 			children = (
@@ -60,11 +72,13 @@
 		34BF335527B6159500350785 /* SahhaExample */ = {
 			isa = PBXGroup;
 			children = (
+				343BE21927D042460064C9F2 /* Views */,
 				34BF336827B7321900350785 /* SahhaExample.entitlements */,
 				34BF335627B6159500350785 /* SahhaExampleApp.swift */,
 				34BF335827B6159500350785 /* ContentView.swift */,
 				34BF335A27B6159900350785 /* Assets.xcassets */,
 				34BF335C27B6159900350785 /* Preview Content */,
+				343BE21C27D076760064C9F2 /* Extensions.swift */,
 			);
 			path = SahhaExample;
 			sourceTree = "<group>";
@@ -161,6 +175,8 @@
 			files = (
 				34BF335927B6159500350785 /* ContentView.swift in Sources */,
 				34BF335727B6159500350785 /* SahhaExampleApp.swift in Sources */,
+				343BE21B27D042690064C9F2 /* AuthenticationView.swift in Sources */,
+				343BE21D27D076760064C9F2 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -5,9 +5,11 @@ import Sahha
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-        Text(Sahha.shared.bundleId)
-            .padding()
+        NavigationView {
+            List {
+                NavigationLink("Authentication", destination: AuthenticationView())
+                
+            }
         }
     }
 }
