@@ -8,23 +8,36 @@ struct AuthenticationView: View {
     @State var profileId: String = ""
     @State var token: String = ""
     
-    var isDisabled: Bool {
+    var isLoginDisabled: Bool {
         customerId.isEmpty || profileId.isEmpty
     }
     
     var body: some View {
         List {
-            Section(header: Text("Credentials")) {
+            Section(header: Text("Account")) {
                 TextField("Customer ID", text: $customerId)
                 TextField("Profile ID", text: $profileId)
-                Button("Authenticate") {
+            }
+            .onAppear {
+                getCredentials()
+            }
+            Section {
+                Button("Login") {
                     hideKeyboard()
-                    Sahha.shared.authenticate(customerId: customerId, profileId: profileId) { value in
+                    Sahha.authenticate(customerId: customerId, profileId: profileId) { value in
                         token = value
+                        setCredentials()
                     }
-                }.disabled(isDisabled)
+                }.disabled(isLoginDisabled)
             }
             if token.isEmpty == false {
+                Section {
+                    Button("Logout") {
+                        hideKeyboard()
+                        Sahha.deleteCredentials()
+                        getCredentials()
+                    }
+                }
                 Section(header: Text("Token")) {
                     Text(token).contextMenu {
                         Button(action: {
@@ -36,6 +49,17 @@ struct AuthenticationView: View {
                 }
             }
         }.navigationTitle("Authentication")
+    }
+    
+    func getCredentials() {
+        let credentials = Sahha.getCredentials()
+        customerId = credentials.customerId
+        profileId = credentials.profileId
+        token = credentials.token
+    }
+    
+    func setCredentials() {
+        Sahha.setCredentials(customerId: customerId, profileId: profileId, token: token)
     }
 }
 

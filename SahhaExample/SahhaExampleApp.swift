@@ -8,7 +8,7 @@ struct SahhaExampleApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView().onAppear {
-                Sahha.shared.setup()
+                Sahha.configure()
             }
         }
     }
