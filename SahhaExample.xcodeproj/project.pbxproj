@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		343BE21B27D042690064C9F2 /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343BE21A27D042690064C9F2 /* AuthenticationView.swift */; };
 		343BE21D27D076760064C9F2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343BE21C27D076760064C9F2 /* Extensions.swift */; };
+		3491B89E27D2EBB700EA1130 /* HealthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491B89D27D2EBB700EA1130 /* HealthView.swift */; };
+		3491B8A027D2EBC400EA1130 /* MotionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491B89F27D2EBC400EA1130 /* MotionView.swift */; };
+		3491B8A227D2FD3D00EA1130 /* AnalyzationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491B8A127D2FD3D00EA1130 /* AnalyzationView.swift */; };
 		34BF335727B6159500350785 /* SahhaExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BF335627B6159500350785 /* SahhaExampleApp.swift */; };
 		34BF335927B6159500350785 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BF335827B6159500350785 /* ContentView.swift */; };
 		34BF335B27B6159900350785 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34BF335A27B6159900350785 /* Assets.xcassets */; };
@@ -20,6 +23,9 @@
 /* Begin PBXFileReference section */
 		343BE21A27D042690064C9F2 /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
 		343BE21C27D076760064C9F2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		3491B89D27D2EBB700EA1130 /* HealthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthView.swift; sourceTree = "<group>"; };
+		3491B89F27D2EBC400EA1130 /* MotionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionView.swift; sourceTree = "<group>"; };
+		3491B8A127D2FD3D00EA1130 /* AnalyzationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzationView.swift; sourceTree = "<group>"; };
 		34BF335327B6159500350785 /* Sahha X.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sahha X.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		34BF335627B6159500350785 /* SahhaExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SahhaExampleApp.swift; sourceTree = "<group>"; };
 		34BF335827B6159500350785 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -47,6 +53,9 @@
 			isa = PBXGroup;
 			children = (
 				343BE21A27D042690064C9F2 /* AuthenticationView.swift */,
+				3491B89D27D2EBB700EA1130 /* HealthView.swift */,
+				3491B89F27D2EBC400EA1130 /* MotionView.swift */,
+				3491B8A127D2FD3D00EA1130 /* AnalyzationView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -176,6 +185,9 @@
 				34BF335927B6159500350785 /* ContentView.swift in Sources */,
 				34BF335727B6159500350785 /* SahhaExampleApp.swift in Sources */,
 				343BE21B27D042690064C9F2 /* AuthenticationView.swift in Sources */,
+				3491B89E27D2EBB700EA1130 /* HealthView.swift in Sources */,
+				3491B8A227D2FD3D00EA1130 /* AnalyzationView.swift in Sources */,
+				3491B8A027D2EBC400EA1130 /* MotionView.swift in Sources */,
 				343BE21D27D076760064C9F2 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -312,6 +324,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "Sahha Example would like access to your health data for analysis.";
+				INFOPLIST_KEY_NSMotionUsageDescription = "Please share your Motion Activity with Sahha.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -345,6 +358,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "Sahha Example would like access to your health data for analysis.";
+				INFOPLIST_KEY_NSMotionUsageDescription = "Please share your Motion Activity with Sahha.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

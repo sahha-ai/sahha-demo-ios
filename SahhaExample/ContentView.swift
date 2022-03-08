@@ -7,8 +7,43 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List {
-                NavigationLink("Authentication", destination: AuthenticationView())
-                
+                HStack {
+                    Spacer()
+                    Image("Icon").resizable().frame(width: 120, height: 120, alignment: .center)
+                    Spacer()
+                }
+                NavigationLink {
+                    AuthenticationView()
+                } label: {
+                    HStack {
+                        Image(systemName: "person.fill")
+                        Text("Authentication")
+                    }
+                }
+                NavigationLink {
+                    HealthView()
+                } label: {
+                    HStack {
+                        Image(systemName: "heart.fill")
+                        Text("Health")
+                    }
+                }
+                NavigationLink {
+                    MotionView()
+                } label: {
+                    HStack {
+                        Image(systemName: "figure.walk")
+                        Text("Motion")
+                    }
+                }
+                NavigationLink {
+                    AnalyzationView()
+                } label: {
+                    HStack {
+                        Image(systemName: "brain.head.profile")
+                        Text("Analyzation")
+                    }
+                }
             }
         }
     }

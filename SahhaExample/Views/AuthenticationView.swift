@@ -14,6 +14,14 @@ struct AuthenticationView: View {
     
     var body: some View {
         List {
+            Section {
+                HStack {
+                    Spacer()
+                    Image(systemName: "person.fill")
+                    Text("Authentication")
+                    Spacer()
+                }.font(.title)
+            }
             Section(header: Text("Account")) {
                 TextField("Customer ID", text: $customerId)
                 TextField("Profile ID", text: $profileId)
@@ -48,7 +56,7 @@ struct AuthenticationView: View {
                     }
                 }
             }
-        }.navigationTitle("Authentication")
+        }
     }
     
     func getCredentials() {
