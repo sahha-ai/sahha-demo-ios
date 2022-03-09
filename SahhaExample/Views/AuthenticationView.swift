@@ -17,7 +17,7 @@ struct AuthenticationView: View {
             Section {
                 HStack {
                     Spacer()
-                    Image(systemName: "person.fill")
+                    Image(systemName: "lock.fill")
                     Text("Authentication")
                     Spacer()
                 }.font(.title)

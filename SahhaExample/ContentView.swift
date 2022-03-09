@@ -16,8 +16,16 @@ struct ContentView: View {
                     AuthenticationView()
                 } label: {
                     HStack {
-                        Image(systemName: "person.fill")
+                        Image(systemName: "lock.fill")
                         Text("Authentication")
+                    }
+                }
+                NavigationLink {
+                    ProfileView()
+                } label: {
+                    HStack {
+                        Image(systemName: "person.fill")
+                        Text("Profile")
                     }
                 }
                 NavigationLink {
