@@ -12,7 +12,7 @@
 		3491B89E27D2EBB700EA1130 /* HealthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491B89D27D2EBB700EA1130 /* HealthView.swift */; };
 		3491B8A027D2EBC400EA1130 /* MotionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491B89F27D2EBC400EA1130 /* MotionView.swift */; };
 		3491B8A227D2FD3D00EA1130 /* AnalyzationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491B8A127D2FD3D00EA1130 /* AnalyzationView.swift */; };
-		34BF335727B6159500350785 /* SahhaExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BF335627B6159500350785 /* SahhaExampleApp.swift */; };
+		34BF335727B6159500350785 /* SahhaDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BF335627B6159500350785 /* SahhaDemoApp.swift */; };
 		34BF335927B6159500350785 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BF335827B6159500350785 /* ContentView.swift */; };
 		34BF335B27B6159900350785 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34BF335A27B6159900350785 /* Assets.xcassets */; };
 		34BF335E27B6159900350785 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34BF335D27B6159900350785 /* Preview Assets.xcassets */; };
@@ -28,12 +28,12 @@
 		3491B89D27D2EBB700EA1130 /* HealthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthView.swift; sourceTree = "<group>"; };
 		3491B89F27D2EBC400EA1130 /* MotionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionView.swift; sourceTree = "<group>"; };
 		3491B8A127D2FD3D00EA1130 /* AnalyzationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzationView.swift; sourceTree = "<group>"; };
-		34BF335327B6159500350785 /* Sahha X.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sahha X.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		34BF335627B6159500350785 /* SahhaExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SahhaExampleApp.swift; sourceTree = "<group>"; };
+		34BF335327B6159500350785 /* Sahha Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sahha Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		34BF335627B6159500350785 /* SahhaDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SahhaDemoApp.swift; sourceTree = "<group>"; };
 		34BF335827B6159500350785 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		34BF335A27B6159900350785 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		34BF335D27B6159900350785 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		34BF336827B7321900350785 /* SahhaExample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SahhaExample.entitlements; sourceTree = "<group>"; };
+		34BF336827B7321900350785 /* SahhaDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SahhaDemo.entitlements; sourceTree = "<group>"; };
 		34BF336927B7321A00350785 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		34C77FAB27D817F200454BB6 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		34C77FAE27D8191400454BB6 /* country_codes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = country_codes.json; sourceTree = "<group>"; };
@@ -69,7 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				34DFCF5A27C710E00067769C /* sahha-swift */,
-				34BF335527B6159500350785 /* SahhaExample */,
+				34BF335527B6159500350785 /* SahhaDemo */,
 				34BF335427B6159500350785 /* Products */,
 				34BF336527B61B9100350785 /* Frameworks */,
 			);
@@ -78,24 +78,24 @@
 		34BF335427B6159500350785 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				34BF335327B6159500350785 /* Sahha X.app */,
+				34BF335327B6159500350785 /* Sahha Demo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		34BF335527B6159500350785 /* SahhaExample */ = {
+		34BF335527B6159500350785 /* SahhaDemo */ = {
 			isa = PBXGroup;
 			children = (
 				34C77FAD27D818F600454BB6 /* Resources */,
 				343BE21927D042460064C9F2 /* Views */,
-				34BF336827B7321900350785 /* SahhaExample.entitlements */,
-				34BF335627B6159500350785 /* SahhaExampleApp.swift */,
+				34BF336827B7321900350785 /* SahhaDemo.entitlements */,
+				34BF335627B6159500350785 /* SahhaDemoApp.swift */,
 				34BF335827B6159500350785 /* ContentView.swift */,
 				34BF335A27B6159900350785 /* Assets.xcassets */,
 				34BF335C27B6159900350785 /* Preview Content */,
 				343BE21C27D076760064C9F2 /* Extensions.swift */,
 			);
-			path = SahhaExample;
+			path = SahhaDemo;
 			sourceTree = "<group>";
 		};
 		34BF335C27B6159900350785 /* Preview Content */ = {
@@ -125,9 +125,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		34BF335227B6159500350785 /* SahhaExample */ = {
+		34BF335227B6159500350785 /* SahhaDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 34BF336127B6159900350785 /* Build configuration list for PBXNativeTarget "SahhaExample" */;
+			buildConfigurationList = 34BF336127B6159900350785 /* Build configuration list for PBXNativeTarget "SahhaDemo" */;
 			buildPhases = (
 				34BF334F27B6159500350785 /* Sources */,
 				34BF335027B6159500350785 /* Frameworks */,
@@ -137,12 +137,12 @@
 			);
 			dependencies = (
 			);
-			name = SahhaExample;
+			name = SahhaDemo;
 			packageProductDependencies = (
 				34DFCF5B27C711620067769C /* Sahha */,
 			);
 			productName = SahhaExample;
-			productReference = 34BF335327B6159500350785 /* Sahha X.app */;
+			productReference = 34BF335327B6159500350785 /* Sahha Demo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -161,7 +161,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 34BF334E27B6159500350785 /* Build configuration list for PBXProject "SahhaExample" */;
+			buildConfigurationList = 34BF334E27B6159500350785 /* Build configuration list for PBXProject "SahhaDemo" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -174,7 +174,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				34BF335227B6159500350785 /* SahhaExample */,
+				34BF335227B6159500350785 /* SahhaDemo */,
 			);
 		};
 /* End PBXProject section */
@@ -199,7 +199,7 @@
 			files = (
 				34C77FAC27D817F200454BB6 /* ProfileView.swift in Sources */,
 				34BF335927B6159500350785 /* ContentView.swift in Sources */,
-				34BF335727B6159500350785 /* SahhaExampleApp.swift in Sources */,
+				34BF335727B6159500350785 /* SahhaDemoApp.swift in Sources */,
 				343BE21B27D042690064C9F2 /* AuthenticationView.swift in Sources */,
 				3491B89E27D2EBB700EA1130 /* HealthView.swift in Sources */,
 				3491B8A227D2FD3D00EA1130 /* AnalyzationView.swift in Sources */,
@@ -332,10 +332,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = SahhaExample/SahhaExample.entitlements;
+				CODE_SIGN_ENTITLEMENTS = SahhaDemo/SahhaDemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"SahhaExample/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"SahhaDemo/Preview Content\"";
 				DEVELOPMENT_TEAM = DFT926V374;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -353,8 +353,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = example.sahha.ios;
-				PRODUCT_NAME = "Sahha X";
+				PRODUCT_BUNDLE_IDENTIFIER = demo.sahha.ios;
+				PRODUCT_NAME = "Sahha Demo";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -366,10 +366,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = SahhaExample/SahhaExample.entitlements;
+				CODE_SIGN_ENTITLEMENTS = SahhaDemo/SahhaDemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"SahhaExample/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"SahhaDemo/Preview Content\"";
 				DEVELOPMENT_TEAM = DFT926V374;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -387,8 +387,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = example.sahha.ios;
-				PRODUCT_NAME = "Sahha X";
+				PRODUCT_BUNDLE_IDENTIFIER = demo.sahha.ios;
+				PRODUCT_NAME = "Sahha Demo";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -398,7 +398,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		34BF334E27B6159500350785 /* Build configuration list for PBXProject "SahhaExample" */ = {
+		34BF334E27B6159500350785 /* Build configuration list for PBXProject "SahhaDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				34BF335F27B6159900350785 /* Debug */,
@@ -407,7 +407,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		34BF336127B6159900350785 /* Build configuration list for PBXNativeTarget "SahhaExample" */ = {
+		34BF336127B6159900350785 /* Build configuration list for PBXNativeTarget "SahhaDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				34BF336227B6159900350785 /* Debug */,

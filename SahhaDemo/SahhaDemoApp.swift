@@ -4,7 +4,7 @@ import SwiftUI
 import Sahha
 
 @main
-struct SahhaExampleApp: App {
+struct SahhaDemoApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView().onAppear {

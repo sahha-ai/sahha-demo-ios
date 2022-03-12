@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:">
+      location = "self:/Volumes/VADER/Code/Sahha/sahha-example-ios/SahhaDemo.xcodeproj">
    </FileRef>
 </Workspace>
