@@ -23,26 +23,11 @@ struct AuthenticationView: View {
                 }.font(.title)
             }
             Section(header: Text("Account")) {
-                TextField("Customer ID", text: $customerId)
-                TextField("Profile ID", text: $profileId)
+                TextField("Customer ID", text: $customerId).autocapitalization(.none)
+                TextField("Profile ID", text: $profileId).autocapitalization(.none)
             }
             .onAppear {
                 getCredentials()
-            }
-            Section {
-                Button {
-                    hideKeyboard()
-                    Sahha.authenticate(customerId: customerId, profileId: profileId) { value in
-                        token = value
-                        setCredentials()
-                    }
-                } label: {
-                    HStack {
-                        Spacer()
-                        Text("Login")
-                        Spacer()
-                    }
-                }.disabled(isLoginDisabled)
             }
             if token.isEmpty == false {
                 Section {
@@ -66,6 +51,22 @@ struct AuthenticationView: View {
                             Text("Copy")
                         }
                     }
+                }
+            } else {
+                Section {
+                    Button {
+                        hideKeyboard()
+                        Sahha.authenticate(customerId: customerId, profileId: profileId) { value in
+                            token = value
+                            setCredentials()
+                        }
+                    } label: {
+                        HStack {
+                            Spacer()
+                            Text("Login")
+                            Spacer()
+                        }
+                    }.disabled(isLoginDisabled)
                 }
             }
         }

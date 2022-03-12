@@ -29,6 +29,7 @@
 		343BE21C27D076760064C9F2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		346FA72F27DC2F4D00383DDD /* MotionHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionHistoryView.swift; sourceTree = "<group>"; };
 		346FA73127DC359500383DDD /* HealthHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthHistoryView.swift; sourceTree = "<group>"; };
+		346FA73327DC542000383DDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		3491B89D27D2EBB700EA1130 /* HealthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthView.swift; sourceTree = "<group>"; };
 		3491B89F27D2EBC400EA1130 /* MotionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionView.swift; sourceTree = "<group>"; };
 		3491B8A127D2FD3D00EA1130 /* AnalyzationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzationView.swift; sourceTree = "<group>"; };
@@ -92,6 +93,7 @@
 		34BF335527B6159500350785 /* SahhaDemo */ = {
 			isa = PBXGroup;
 			children = (
+				346FA73327DC542000383DDD /* Info.plist */,
 				34C77FAD27D818F600454BB6 /* Resources */,
 				343BE21927D042460064C9F2 /* Views */,
 				34BF336827B7321900350785 /* SahhaDemo.entitlements */,
@@ -347,6 +349,7 @@
 				DEVELOPMENT_TEAM = DFT926V374;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SahhaDemo/Info.plist;
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "Sahha Demo would like access to your health activity for analysis.";
 				INFOPLIST_KEY_NSMotionUsageDescription = "Sahha Demo would like access to your motion activity for analysis.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -381,6 +384,7 @@
 				DEVELOPMENT_TEAM = DFT926V374;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SahhaDemo/Info.plist;
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "Sahha Demo would like access to your health activity for analysis.";
 				INFOPLIST_KEY_NSMotionUsageDescription = "Sahha Demo would like access to your motion activity for analysis.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
