@@ -4,13 +4,14 @@ import SwiftUI
 
 struct ProfileView: View {
     
-    @State var age: Int = 0
+    @AppStorage("age") var age: Int = 0
     @State var countries: [String: String] = [:]
-    @State var country: String = ""
+    @AppStorage("country") var country: String = ""
     let genders: [String] = ["Male", "Female", "Gender Diverse"]
-    @State var gender: String = ""
-    var isUpdateButtonDisabled: Bool {
-        age == 0 || country.isEmpty || gender.isEmpty
+    @AppStorage("gender") var gender: String = ""
+    var isUpdateButtonEnabled: Bool {
+        return false
+        //age == 0 || country.isEmpty || gender.isEmpty
     }
     
     var body: some View {
@@ -46,18 +47,18 @@ struct ProfileView: View {
             } header: {
                 Text("Country")
             }
-            Section {
-                Button {
-                    
-                } label: {
-                    HStack {
-                        Spacer()
-                        Text("Update")
-                        Spacer()
+            if isUpdateButtonEnabled {
+                Section {
+                    Button {
+                    } label: {
+                        HStack {
+                            Spacer()
+                            Text("Update")
+                            Spacer()
+                        }
                     }
-                }.disabled(isUpdateButtonDisabled)
+                }
             }
-            
         }.onAppear {
             if let jsonFile = Bundle.main.url(forResource: "country_codes", withExtension: "json"), let jsonData = try? Data(contentsOf: jsonFile), let jsonObject = try? JSONSerialization.jsonObject(with: jsonData, options: []), let jsonDictionary = jsonObject as? [String: String] {
                 countries = jsonDictionary

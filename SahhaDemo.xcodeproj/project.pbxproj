@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		343BE21B27D042690064C9F2 /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343BE21A27D042690064C9F2 /* AuthenticationView.swift */; };
 		343BE21D27D076760064C9F2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343BE21C27D076760064C9F2 /* Extensions.swift */; };
+		346FA73027DC2F4D00383DDD /* MotionHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346FA72F27DC2F4D00383DDD /* MotionHistoryView.swift */; };
+		346FA73227DC359500383DDD /* HealthHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346FA73127DC359500383DDD /* HealthHistoryView.swift */; };
 		3491B89E27D2EBB700EA1130 /* HealthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491B89D27D2EBB700EA1130 /* HealthView.swift */; };
 		3491B8A027D2EBC400EA1130 /* MotionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491B89F27D2EBC400EA1130 /* MotionView.swift */; };
 		3491B8A227D2FD3D00EA1130 /* AnalyzationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491B8A127D2FD3D00EA1130 /* AnalyzationView.swift */; };
@@ -25,6 +27,8 @@
 /* Begin PBXFileReference section */
 		343BE21A27D042690064C9F2 /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
 		343BE21C27D076760064C9F2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		346FA72F27DC2F4D00383DDD /* MotionHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionHistoryView.swift; sourceTree = "<group>"; };
+		346FA73127DC359500383DDD /* HealthHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthHistoryView.swift; sourceTree = "<group>"; };
 		3491B89D27D2EBB700EA1130 /* HealthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthView.swift; sourceTree = "<group>"; };
 		3491B89F27D2EBC400EA1130 /* MotionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionView.swift; sourceTree = "<group>"; };
 		3491B8A127D2FD3D00EA1130 /* AnalyzationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzationView.swift; sourceTree = "<group>"; };
@@ -58,7 +62,9 @@
 			children = (
 				343BE21A27D042690064C9F2 /* AuthenticationView.swift */,
 				3491B89D27D2EBB700EA1130 /* HealthView.swift */,
+				346FA73127DC359500383DDD /* HealthHistoryView.swift */,
 				3491B89F27D2EBC400EA1130 /* MotionView.swift */,
+				346FA72F27DC2F4D00383DDD /* MotionHistoryView.swift */,
 				3491B8A127D2FD3D00EA1130 /* AnalyzationView.swift */,
 				34C77FAB27D817F200454BB6 /* ProfileView.swift */,
 			);
@@ -200,7 +206,9 @@
 				34C77FAC27D817F200454BB6 /* ProfileView.swift in Sources */,
 				34BF335927B6159500350785 /* ContentView.swift in Sources */,
 				34BF335727B6159500350785 /* SahhaDemoApp.swift in Sources */,
+				346FA73227DC359500383DDD /* HealthHistoryView.swift in Sources */,
 				343BE21B27D042690064C9F2 /* AuthenticationView.swift in Sources */,
+				346FA73027DC2F4D00383DDD /* MotionHistoryView.swift in Sources */,
 				3491B89E27D2EBB700EA1130 /* HealthView.swift in Sources */,
 				3491B8A227D2FD3D00EA1130 /* AnalyzationView.swift in Sources */,
 				3491B8A027D2EBC400EA1130 /* MotionView.swift in Sources */,

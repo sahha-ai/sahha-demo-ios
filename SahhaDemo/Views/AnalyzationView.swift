@@ -5,9 +5,27 @@ import Sahha
 
 struct AnalyzationView: View {
     
-    var isAnalyzeButtonDisabled: Bool {
-        false
-    }
+    @State var isAnalyzeButtonEnabled: Bool = true
+        
+    var sampleString: String = """
+\nid :
+kYJk8CCasUeHTz5rvSc9Yw
+    \ncreated_at :
+2022-01-19T21:50:27.564Z
+    \nstate :
+depressed
+    \nsub_state :
+moderate
+    \nrange :
+7
+    \nconfidence :
+0.91
+    \nphenotypes : [
+        \tscreen_time
+        \tsleep
+    ]
+\n
+"""
     
     var body: some View {
         List {
@@ -19,16 +37,29 @@ struct AnalyzationView: View {
                     Spacer()
                 }.font(.title)
             }
-            Section {
-                Button {
-                    Sahha.analyze()
-                } label: {
+            if isAnalyzeButtonEnabled {
+                Section {
+                    Button {
+                        //Sahha.analyze()
+                        isAnalyzeButtonEnabled.toggle()
+                    } label: {
+                        HStack {
+                            Spacer()
+                            Text("Analyze")
+                            Spacer()
+                        }
+                    }
+                }
+            } else {
+                Section {
+                    Text(sampleString).font(.caption)
+                } header : {
                     HStack {
                         Spacer()
-                        Text("Analyze")
+                        Text("Sample Analysis")
                         Spacer()
                     }
-                }.disabled(isAnalyzeButtonDisabled)
+                }
             }
         }
     }

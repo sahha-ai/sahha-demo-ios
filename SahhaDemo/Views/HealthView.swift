@@ -7,8 +7,8 @@ struct HealthView: View {
     
     @State var activityStatus: ActivityStatus = .unknown
     
-    var isActivityButtonDisabled: Bool {
-        activityStatus == .unavailable || activityStatus == .enabled
+    var isActivityButtonEnabled: Bool {
+        activityStatus == .unknown || activityStatus == .disabled
     }
     
     var body: some View {
@@ -31,20 +31,34 @@ struct HealthView: View {
                     activityStatus = Sahha.health.activityStatus
                 }
             }
-            Section {
-                Button {
-                    Sahha.health.activate {  newStatus in
-                        activityStatus = newStatus
-                        print("sleep")
-                        print(activityStatus.description)
+            if isActivityButtonEnabled {
+                Section {
+                    Button {
+                        Sahha.health.activate {  newStatus in
+                            activityStatus = newStatus
+                            print("sleep")
+                            print(activityStatus.description)
+                        }
+                    } label: {
+                        HStack {
+                            Spacer()
+                            Text("Enable")
+                            Spacer()
+                        }
                     }
-                } label: {
-                    HStack {
-                        Spacer()
-                        Text("Enable")
-                        Spacer()
+                }
+            }
+            if activityStatus == .enabled {
+                Section {
+                    NavigationLink {
+                        HealthHistoryView()
+                    } label: {
+                        HStack {
+                            Image(systemName: "clock")
+                            Text("Activity History").bold()
+                        }
                     }
-                }.disabled(isActivityButtonDisabled)
+                }
             }
         }
     }

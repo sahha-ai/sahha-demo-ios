@@ -4,12 +4,12 @@ import SwiftUI
 import Sahha
 
 struct MotionView: View {
-
+    
     @State var activityStatus: ActivityStatus = .unknown
     @State var isActivitySettingsPrompt: Bool = false
     
-    var isActivityButtonDisabled: Bool {
-        activityStatus == .unavailable || activityStatus == .enabled
+    var isActivityButtonEnabled: Bool {
+        activityStatus == .unknown || activityStatus == .disabled
     }
     
     var body: some View {
@@ -32,26 +32,27 @@ struct MotionView: View {
                     activityStatus = Sahha.motion.activityStatus
                 }
             }
-            Section {
-                Button {
-                    Sahha.motion.activate { newStatus in
-                        activityStatus = newStatus
-                        print("steps")
-                        print(activityStatus.description)
-                        switch activityStatus {
-                        case .disabled:
-                            isActivitySettingsPrompt = true
-                        default:
-                            break
+            if isActivityButtonEnabled {
+                Section {
+                    Button {
+                        Sahha.motion.activate { newStatus in
+                            activityStatus = newStatus
+                            print("steps")
+                            print(activityStatus.description)
+                            switch activityStatus {
+                            case .disabled:
+                                isActivitySettingsPrompt = true
+                            default:
+                                break
+                            }
+                        }
+                    } label: {
+                        HStack {
+                            Spacer()
+                            Text("Enable")
+                            Spacer()
                         }
                     }
-                } label: {
-                    HStack {
-                        Spacer()
-                        Text("Enable")
-                        Spacer()
-                    }
-                }.disabled(isActivityButtonDisabled)
                     .alert(isPresented: $isActivitySettingsPrompt) {
                         Alert(
                             title: Text("Motion & Fitness"),
@@ -63,6 +64,19 @@ struct MotionView: View {
                             })
                         )
                     }
+                }
+            }
+            if activityStatus == .enabled {
+                Section {
+                    NavigationLink {
+                        MotionHistoryView()
+                    } label: {
+                        HStack {
+                            Image(systemName: "clock")
+                            Text("Activity History").bold()
+                        }
+                    }
+                }
             }
         }
     }
