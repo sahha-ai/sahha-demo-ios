@@ -1,8 +1,14 @@
 // Copyright © 2022 Sahha. All rights reserved.
 
 import SwiftUI
+import Sahha
 
 struct AnalyzationView: View {
+    
+    var isAnalyzeButtonDisabled: Bool {
+        false
+    }
+    
     var body: some View {
         List {
             Section {
@@ -12,6 +18,17 @@ struct AnalyzationView: View {
                     Text("Analyzation")
                     Spacer()
                 }.font(.title)
+            }
+            Section {
+                Button {
+                    Sahha.analyze()
+                } label: {
+                    HStack {
+                        Spacer()
+                        Text("Analyze")
+                        Spacer()
+                    }
+                }.disabled(isAnalyzeButtonDisabled)
             }
         }
     }

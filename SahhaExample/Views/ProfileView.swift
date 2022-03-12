@@ -9,6 +9,9 @@ struct ProfileView: View {
     @State var country: String = ""
     let genders: [String] = ["Male", "Female", "Gender Diverse"]
     @State var gender: String = ""
+    var isUpdateButtonDisabled: Bool {
+        age == 0 || country.isEmpty || gender.isEmpty
+    }
     
     var body: some View {
         Form {
@@ -42,6 +45,17 @@ struct ProfileView: View {
                 }
             } header: {
                 Text("Country")
+            }
+            Section {
+                Button {
+                    
+                } label: {
+                    HStack {
+                        Spacer()
+                        Text("Update")
+                        Spacer()
+                    }
+                }.disabled(isUpdateButtonDisabled)
             }
             
         }.onAppear {

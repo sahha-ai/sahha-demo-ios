@@ -30,20 +30,32 @@ struct AuthenticationView: View {
                 getCredentials()
             }
             Section {
-                Button("Login") {
+                Button {
                     hideKeyboard()
                     Sahha.authenticate(customerId: customerId, profileId: profileId) { value in
                         token = value
                         setCredentials()
                     }
+                } label: {
+                    HStack {
+                        Spacer()
+                        Text("Login")
+                        Spacer()
+                    }
                 }.disabled(isLoginDisabled)
             }
             if token.isEmpty == false {
                 Section {
-                    Button("Logout") {
+                    Button {
                         hideKeyboard()
                         Sahha.deleteCredentials()
                         getCredentials()
+                    } label: {
+                        HStack {
+                            Spacer()
+                            Text("Logout")
+                            Spacer()
+                        }
                     }
                 }
                 Section(header: Text("Token")) {
@@ -67,7 +79,7 @@ struct AuthenticationView: View {
     }
     
     func setCredentials() {
-        Sahha.setCredentials(customerId: customerId, profileId: profileId, token: token)
+        Sahha.authenticate(customerId: customerId, profileId: profileId, token: token)
     }
 }
 

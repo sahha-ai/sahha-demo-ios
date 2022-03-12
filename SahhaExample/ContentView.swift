@@ -33,7 +33,7 @@ struct ContentView: View {
                 } label: {
                     HStack {
                         Image(systemName: "heart.fill")
-                        Text("Health")
+                        Text("Health Activity")
                     }
                 }
                 NavigationLink {
@@ -41,7 +41,7 @@ struct ContentView: View {
                 } label: {
                     HStack {
                         Image(systemName: "figure.walk")
-                        Text("Motion")
+                        Text("Motion Activity")
                     }
                 }
                 NavigationLink {

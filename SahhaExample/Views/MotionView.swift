@@ -5,10 +5,11 @@ import Sahha
 
 struct MotionView: View {
 
-    @State private var isActivitySettingsPrompt: Bool = false
+    @State var activityStatus: ActivityStatus = .unknown
+    @State var isActivitySettingsPrompt: Bool = false
     
     var isActivityButtonDisabled: Bool {
-        Sahha.motion.activityStatus == .unavailable || Sahha.motion.activityStatus == .enabled
+        activityStatus == .unavailable || activityStatus == .enabled
     }
     
     var body: some View {
@@ -22,16 +23,19 @@ struct MotionView: View {
                 }.font(.title)
             }
             Section {
-                Picker("Activity Status", selection: .constant(Sahha.motion.activityStatus.rawValue)) {
+                Picker("Activity Status", selection: .constant(activityStatus.rawValue)) {
                     Text("Unknown").tag(0)
                     Text("Unavailable").tag(1)
                     Text("Disabled").tag(2)
                     Text("Enabled").tag(3)
+                }.onAppear {
+                    activityStatus = Sahha.motion.activityStatus
                 }
             }
             Section {
-                Button("Enable") {
-                    Sahha.motion.activate { activityStatus in
+                Button {
+                    Sahha.motion.activate { newStatus in
+                        activityStatus = newStatus
                         print("steps")
                         print(activityStatus.description)
                         switch activityStatus {
@@ -40,6 +44,12 @@ struct MotionView: View {
                         default:
                             break
                         }
+                    }
+                } label: {
+                    HStack {
+                        Spacer()
+                        Text("Enable")
+                        Spacer()
                     }
                 }.disabled(isActivityButtonDisabled)
                     .alert(isPresented: $isActivitySettingsPrompt) {

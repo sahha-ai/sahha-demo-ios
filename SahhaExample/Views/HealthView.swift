@@ -5,8 +5,10 @@ import Sahha
 
 struct HealthView: View {
     
-    var isActivityDisabled: Bool {
-        Sahha.health.activityStatus == .unavailable || Sahha.health.activityStatus == .enabled
+    @State var activityStatus: ActivityStatus = .unknown
+    
+    var isActivityButtonDisabled: Bool {
+        activityStatus == .unavailable || activityStatus == .enabled
     }
     
     var body: some View {
@@ -20,19 +22,29 @@ struct HealthView: View {
                 }.font(.title)
             }
             Section {
-                Picker("Activity Status", selection: .constant(Sahha.health.activityStatus.rawValue)) {
+                Picker("Activity Status", selection: .constant(activityStatus.rawValue)) {
                     Text("Unknown").tag(0)
                     Text("Unavailable").tag(1)
                     Text("Disabled").tag(2)
                     Text("Enabled").tag(3)
+                }.onAppear {
+                    activityStatus = Sahha.health.activityStatus
                 }
             }
             Section {
-                Button("Enable") {
-                    Sahha.health.activate { activityStatus in
+                Button {
+                    Sahha.health.activate {  newStatus in
+                        activityStatus = newStatus
+                        print("sleep")
                         print(activityStatus.description)
                     }
-                }.disabled(isActivityDisabled)
+                } label: {
+                    HStack {
+                        Spacer()
+                        Text("Enable")
+                        Spacer()
+                    }
+                }.disabled(isActivityButtonDisabled)
             }
         }
     }
