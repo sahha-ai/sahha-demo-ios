@@ -5,11 +5,11 @@ import Sahha
 
 struct MotionView: View {
     
-    @State var activityStatus: ActivityStatus = .unknown
+    @State var activityStatus: ActivityStatus = .pending
     @State var isActivitySettingsPrompt: Bool = false
     
     var isActivityButtonEnabled: Bool {
-        activityStatus == .unknown || activityStatus == .disabled
+        activityStatus == .pending || activityStatus == .disabled
     }
     
     var body: some View {
@@ -24,7 +24,7 @@ struct MotionView: View {
             }
             Section {
                 Picker("Activity Status", selection: .constant(activityStatus.rawValue)) {
-                    Text("Unknown").tag(0)
+                    Text("Pending").tag(0)
                     Text("Unavailable").tag(1)
                     Text("Disabled").tag(2)
                     Text("Enabled").tag(3)

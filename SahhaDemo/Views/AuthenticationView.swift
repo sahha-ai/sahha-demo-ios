@@ -56,9 +56,11 @@ struct AuthenticationView: View {
                 Section {
                     Button {
                         hideKeyboard()
-                        Sahha.authenticate(customerId: customerId, profileId: profileId) { value in
-                            token = value
-                            setCredentials()
+                        Sahha.authenticate(customerId: customerId, profileId: profileId) { error, value in
+                            if let value = value {
+                                token = value
+                                setCredentials()
+                            }
                         }
                     } label: {
                         HStack {

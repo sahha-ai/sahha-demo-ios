@@ -34,7 +34,7 @@ struct ProfileView: View {
                     ForEach(genders, id: \.self) { value in
                         Text(value).tag(value)
                     }
-                }.navigationBarTitle("Gender")
+                }
             } header: {
                 Text("Gender")
             }
