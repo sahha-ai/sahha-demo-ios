@@ -5,7 +5,7 @@ import Sahha
 
 struct MotionView: View {
     
-    @State var activityStatus: ActivityStatus = .pending
+    @State var activityStatus: SahhaActivityStatus = .pending
     @State var isActivitySettingsPrompt: Bool = false
     
     var isActivityButtonEnabled: Bool {

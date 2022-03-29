@@ -5,7 +5,7 @@ import Sahha
 
 struct HealthView: View {
     
-    @State var activityStatus: ActivityStatus = .pending
+    @State var activityStatus: SahhaActivityStatus = .pending
     
     var isActivityButtonEnabled: Bool {
         activityStatus == .pending || activityStatus == .disabled
