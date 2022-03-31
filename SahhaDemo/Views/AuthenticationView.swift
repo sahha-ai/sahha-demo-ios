@@ -4,9 +4,9 @@ import SwiftUI
 import Sahha
 
 struct AuthenticationView: View {
-    @State var customerId: String = ""
-    @State var profileId: String = ""
-    @State var token: String = ""
+    @AppStorage("customerId") private var customerId: String = ""
+    @AppStorage("profileId") private var profileId: String = ""
+    @State private var authStatus: String = ""
     
     var isLoginDisabled: Bool {
         customerId.isEmpty || profileId.isEmpty
@@ -26,29 +26,19 @@ struct AuthenticationView: View {
                 TextField("Customer ID", text: $customerId).autocapitalization(.none)
                 TextField("Profile ID", text: $profileId).autocapitalization(.none)
             }
-            .onAppear {
-                getCredentials()
-            }
-            if token.isEmpty == false {
+            if authStatus.isEmpty == false {
+                Section(header: Text("Status")) {
+                    Text(authStatus)
+                }
                 Section {
                     Button {
                         hideKeyboard()
-                        Sahha.deleteCredentials()
-                        getCredentials()
+                        authStatus = ""
                     } label: {
                         HStack {
                             Spacer()
                             Text("Logout")
                             Spacer()
-                        }
-                    }
-                }
-                Section(header: Text("Token")) {
-                    Text(token).contextMenu {
-                        Button(action: {
-                            UIPasteboard.general.string = token
-                        }) {
-                            Text("Copy")
                         }
                     }
                 }
@@ -58,8 +48,7 @@ struct AuthenticationView: View {
                         hideKeyboard()
                         Sahha.authenticate(customerId: customerId, profileId: profileId) { error, value in
                             if let value = value {
-                                token = value
-                                setCredentials()
+                                authStatus = value
                             }
                         }
                     } label: {
@@ -73,21 +62,10 @@ struct AuthenticationView: View {
             }
         }
     }
-    
-    func getCredentials() {
-        let credentials = Sahha.getCredentials()
-        customerId = credentials.customerId
-        profileId = credentials.profileId
-        token = credentials.token
-    }
-    
-    func setCredentials() {
-        Sahha.authenticate(customerId: customerId, profileId: profileId, token: token)
-    }
 }
 
 struct AuthorizationView_Previews: PreviewProvider {
     static var previews: some View {
-        AuthenticationView(customerId: "ABC", profileId: "123")
+        AuthenticationView()
     }
 }
