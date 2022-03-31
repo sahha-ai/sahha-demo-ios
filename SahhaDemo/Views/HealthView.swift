@@ -36,8 +36,7 @@ struct HealthView: View {
                     Button {
                         Sahha.health.activate {  newStatus in
                             activityStatus = newStatus
-                            print("sleep")
-                            print(activityStatus.description)
+                            print("Sahha | Health activity status: ", activityStatus.description)
                         }
                     } label: {
                         HStack {

@@ -5,27 +5,22 @@ import Sahha
 
 struct AnalyzationView: View {
     
+    @State var analyzationString: String = ""
     @State var isAnalyzeButtonEnabled: Bool = true
         
-    var sampleString: String = """
-\nid :
-kYJk8CCasUeHTz5rvSc9Yw
-    \ncreated_at :
-2022-01-19T21:50:27.564Z
-    \nstate :
-depressed
-    \nsub_state :
-moderate
-    \nrange :
-7
-    \nconfidence :
-0.91
-    \nphenotypes : [
-        \tscreen_time
-        \tsleep
-    ]
-\n
-"""
+    func getAnalyzation() {
+        analyzationString = "Waiting..."
+        isAnalyzeButtonEnabled = false
+        Sahha.analyze { error, string in
+            isAnalyzeButtonEnabled = true
+            if let error = error {
+                print(error)
+            }
+            else if let string = string {
+                analyzationString = string
+            }
+        }
+    }
     
     var body: some View {
         List {
@@ -40,8 +35,7 @@ moderate
             if isAnalyzeButtonEnabled {
                 Section {
                     Button {
-                        //Sahha.analyze()
-                        isAnalyzeButtonEnabled.toggle()
+                        getAnalyzation()
                     } label: {
                         HStack {
                             Spacer()
@@ -50,9 +44,10 @@ moderate
                         }
                     }
                 }
-            } else {
+            }
+            if analyzationString.isEmpty == false {
                 Section {
-                    Text(sampleString).font(.caption)
+                    Text(analyzationString).font(.caption)
                 } header : {
                     HStack {
                         Spacer()

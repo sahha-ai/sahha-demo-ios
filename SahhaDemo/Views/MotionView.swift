@@ -37,7 +37,6 @@ struct MotionView: View {
                     Button {
                         Sahha.motion.activate { newStatus in
                             activityStatus = newStatus
-                            print("steps")
                             print(activityStatus.description)
                             switch activityStatus {
                             case .disabled:
@@ -59,7 +58,7 @@ struct MotionView: View {
                             message: Text("Please enable this app to access your Motion & Fitness data"),
                             dismissButton: .default(Text("Open App Settings"), action: {
                                 Sahha.motion.promptUserToActivate { activityStatus in
-                                    print(activityStatus.description)
+                                    print("Sahha | Motion activity status: ", activityStatus.description)
                                 }
                             })
                         )
