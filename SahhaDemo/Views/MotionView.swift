@@ -57,9 +57,7 @@ struct MotionView: View {
                             title: Text("Motion & Fitness"),
                             message: Text("Please enable this app to access your Motion & Fitness data"),
                             dismissButton: .default(Text("Open App Settings"), action: {
-                                Sahha.motion.promptUserToActivate { activityStatus in
-                                    print("Sahha | Motion activity status: ", activityStatus.description)
-                                }
+                                Sahha.openAppSettings()
                             })
                         )
                     }
