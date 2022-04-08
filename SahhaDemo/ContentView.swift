@@ -20,8 +20,6 @@ struct ContentView: View {
                         Text("Authentication")
                     }
                 }
-                /*
-                // Under Development
                 NavigationLink {
                     ProfileView()
                 } label: {
@@ -30,7 +28,6 @@ struct ContentView: View {
                         Text("Profile")
                     }
                 }
-                */
                 NavigationLink {
                     HealthView()
                 } label: {

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3429A51427FFBDAD00325AE0 /* Sahha in Frameworks */ = {isa = PBXBuildFile; productRef = 3429A51327FFBDAD00325AE0 /* Sahha */; };
+		3429A51727FFBFBB00325AE0 /* AppCenterAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 3429A51627FFBFBB00325AE0 /* AppCenterAnalytics */; };
+		3429A51927FFBFBB00325AE0 /* AppCenterCrashes in Frameworks */ = {isa = PBXBuildFile; productRef = 3429A51827FFBFBB00325AE0 /* AppCenterCrashes */; };
 		343BE21B27D042690064C9F2 /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343BE21A27D042690064C9F2 /* AuthenticationView.swift */; };
 		343BE21D27D076760064C9F2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343BE21C27D076760064C9F2 /* Extensions.swift */; };
 		346FA73027DC2F4D00383DDD /* MotionHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346FA72F27DC2F4D00383DDD /* MotionHistoryView.swift */; };
@@ -21,7 +24,6 @@
 		34BF336A27B7321A00350785 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34BF336927B7321A00350785 /* HealthKit.framework */; };
 		34C77FAC27D817F200454BB6 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C77FAB27D817F200454BB6 /* ProfileView.swift */; };
 		34C77FAF27D8191400454BB6 /* country_codes.json in Resources */ = {isa = PBXBuildFile; fileRef = 34C77FAE27D8191400454BB6 /* country_codes.json */; };
-		34DFCF5C27C711620067769C /* Sahha in Frameworks */ = {isa = PBXBuildFile; productRef = 34DFCF5B27C711620067769C /* Sahha */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,8 +52,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34DFCF5C27C711620067769C /* Sahha in Frameworks */,
+				3429A51427FFBDAD00325AE0 /* Sahha in Frameworks */,
 				34BF336A27B7321A00350785 /* HealthKit.framework in Frameworks */,
+				3429A51727FFBFBB00325AE0 /* AppCenterAnalytics in Frameworks */,
+				3429A51927FFBFBB00325AE0 /* AppCenterCrashes in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,7 +151,9 @@
 			);
 			name = SahhaDemo;
 			packageProductDependencies = (
-				34DFCF5B27C711620067769C /* Sahha */,
+				3429A51327FFBDAD00325AE0 /* Sahha */,
+				3429A51627FFBFBB00325AE0 /* AppCenterAnalytics */,
+				3429A51827FFBFBB00325AE0 /* AppCenterCrashes */,
 			);
 			productName = SahhaExample;
 			productReference = 34BF335327B6159500350785 /* Sahha Demo.app */;
@@ -178,6 +184,9 @@
 				Base,
 			);
 			mainGroup = 34BF334A27B6159500350785;
+			packageReferences = (
+				3429A51527FFBFBB00325AE0 /* XCRemoteSwiftPackageReference "appcenter-sdk-apple" */,
+			);
 			productRefGroup = 34BF335427B6159500350785 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -432,10 +441,31 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		3429A51527FFBFBB00325AE0 /* XCRemoteSwiftPackageReference "appcenter-sdk-apple" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/microsoft/appcenter-sdk-apple.git";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
-		34DFCF5B27C711620067769C /* Sahha */ = {
+		3429A51327FFBDAD00325AE0 /* Sahha */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Sahha;
+		};
+		3429A51627FFBFBB00325AE0 /* AppCenterAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3429A51527FFBFBB00325AE0 /* XCRemoteSwiftPackageReference "appcenter-sdk-apple" */;
+			productName = AppCenterAnalytics;
+		};
+		3429A51827FFBFBB00325AE0 /* AppCenterCrashes */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3429A51527FFBFBB00325AE0 /* XCRemoteSwiftPackageReference "appcenter-sdk-apple" */;
+			productName = AppCenterCrashes;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
