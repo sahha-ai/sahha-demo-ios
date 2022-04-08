@@ -1,6 +1,7 @@
 // Copyright © 2022 Sahha. All rights reserved.
 
 import SwiftUI
+import Sahha
 
 struct ProfileView: View {
     
@@ -9,9 +10,8 @@ struct ProfileView: View {
     @AppStorage("country") var country: String = ""
     let genders: [String] = ["Male", "Female", "Gender Diverse"]
     @AppStorage("gender") var gender: String = ""
-    var isUpdateButtonEnabled: Bool {
-        return false
-        //age == 0 || country.isEmpty || gender.isEmpty
+    var isInvalid: Bool {
+        return age == 0 || country.isEmpty || gender.isEmpty
     }
     
     var body: some View {
@@ -47,13 +47,41 @@ struct ProfileView: View {
             } header: {
                 Text("Country")
             }
-            if isUpdateButtonEnabled {
+            if isInvalid == false {
                 Section {
                     Button {
+                        hideKeyboard()
+                        let demographic = SahhaDemographic(age: age, gender: gender, country: country, birthCountry: country)
+                        Sahha.postDemographic(demographic) { error, value in
+                            if let error = error {
+                                print(error)
+                            }
+                            print(value)
+                        }
                     } label: {
                         HStack {
                             Spacer()
                             Text("Update")
+                            Spacer()
+                        }
+                    }
+                }
+                Section {
+                    Button {
+                        hideKeyboard()
+                        Sahha.getDemographic { error, value in
+                            if let error = error {
+                                print("woops")
+                                print(error)
+                            }
+                            else if let value = value {
+                                print(value)
+                            }
+                        }
+                    } label: {
+                        HStack {
+                            Spacer()
+                            Text("Get")
                             Spacer()
                         }
                     }
