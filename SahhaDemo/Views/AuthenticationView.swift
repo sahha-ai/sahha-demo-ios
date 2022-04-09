@@ -4,12 +4,11 @@ import SwiftUI
 import Sahha
 
 struct AuthenticationView: View {
-    @AppStorage("customerId") private var customerId: String = ""
-    @AppStorage("profileId") private var profileId: String = ""
-    @State private var authStatus: String = ""
+    @AppStorage("sahhaToken") private var sahhaToken: String = ""
+    @AppStorage("sahhaRefreshToken") private var sahhaRefreshToken: String = ""
     
-    var isLoginDisabled: Bool {
-        customerId.isEmpty || profileId.isEmpty
+    var isSaveDisabled: Bool {
+        sahhaToken.isEmpty || sahhaRefreshToken.isEmpty
     }
     
     var body: some View {
@@ -22,42 +21,38 @@ struct AuthenticationView: View {
                     Spacer()
                 }.font(.title)
             }
-            Section(header: Text("Account")) {
-                TextField("Customer ID", text: $customerId).autocapitalization(.none)
-                TextField("Profile ID", text: $profileId).autocapitalization(.none)
+            Section(header: Text("Token")) {
+                TextField("ABC-123", text: $sahhaToken).autocapitalization(.none)
             }
-            if authStatus.isEmpty == false {
-                Section(header: Text("Status")) {
-                    Text(authStatus)
-                }
+            Section(header: Text("Refresh Token")) {
+                TextField("ABC-123", text: $sahhaRefreshToken).autocapitalization(.none)
+            }
+            Section {
+                Button {
+                    hideKeyboard()
+                    Sahha.authenticate(token: sahhaToken, refreshToken: sahhaRefreshToken)
+                } label: {
+                    HStack {
+                        Spacer()
+                        Text("Save")
+                        Spacer()
+                    }
+                }.disabled(isSaveDisabled)
+            }
+            if isSaveDisabled == false {
                 Section {
                     Button {
                         hideKeyboard()
-                        authStatus = ""
+                        sahhaToken = ""
+                        sahhaRefreshToken = ""
+                        Sahha.deauthenticate()
                     } label: {
                         HStack {
                             Spacer()
-                            Text("Logout")
+                            Text("Delete")
                             Spacer()
                         }
                     }
-                }
-            } else {
-                Section {
-                    Button {
-                        hideKeyboard()
-                        Sahha.authenticate(customerId: customerId, profileId: profileId) { error, value in
-                            if let value = value {
-                                authStatus = value
-                            }
-                        }
-                    } label: {
-                        HStack {
-                            Spacer()
-                            Text("Login")
-                            Spacer()
-                        }
-                    }.disabled(isLoginDisabled)
                 }
             }
         }
