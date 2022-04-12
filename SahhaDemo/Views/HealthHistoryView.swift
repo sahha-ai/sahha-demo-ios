@@ -2,6 +2,7 @@
 
 import SwiftUI
 import Sahha
+import HealthKit
 
 struct HealthHistoryView: View {
     var body: some View {
@@ -12,14 +13,18 @@ struct HealthHistoryView: View {
                         Text(item.startDate.toDateTimeFormat)
                         HStack {
                             Spacer()
-                            if item.isAsleep {
-                                Text("Asleep")
-                                Image(systemName: "moon.zzz.fill")
-                            } else {
-                                Text("In Bed")
-                                Image(systemName: "bed.double.fill")
+                            Group {
+                                if item.value == HKCategoryValueSleepAnalysis.inBed.rawValue {
+                                    Image(systemName: "bed.double.fill")
+                                    Text("In Bed")
+                                } else if item.value == HKCategoryValueSleepAnalysis.asleep.rawValue {
+                                    Image(systemName: "moon.zzz.fill")
+                                    Text("Asleep")
+                                } else if item.value == HKCategoryValueSleepAnalysis.awake.rawValue {
+                                    Image(systemName: "sun.max.fill")
+                                    Text("Awake")
+                                }
                             }
-                            Text("\(item.count) minutes")
                             Spacer()
                         }
                         Text(item.endDate.toDateTimeFormat)
