@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3429A51427FFBDAD00325AE0 /* Sahha in Frameworks */ = {isa = PBXBuildFile; productRef = 3429A51327FFBDAD00325AE0 /* Sahha */; };
 		343BE21B27D042690064C9F2 /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343BE21A27D042690064C9F2 /* AuthenticationView.swift */; };
 		343BE21D27D076760064C9F2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343BE21C27D076760064C9F2 /* Extensions.swift */; };
 		346FA73027DC2F4D00383DDD /* MotionHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346FA72F27DC2F4D00383DDD /* MotionHistoryView.swift */; };
 		346FA73227DC359500383DDD /* HealthHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346FA73127DC359500383DDD /* HealthHistoryView.swift */; };
+		34842E932817B3D00041D262 /* Sahha in Frameworks */ = {isa = PBXBuildFile; productRef = 34842E922817B3D00041D262 /* Sahha */; };
 		3491B89E27D2EBB700EA1130 /* HealthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491B89D27D2EBB700EA1130 /* HealthView.swift */; };
 		3491B8A027D2EBC400EA1130 /* MotionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491B89F27D2EBC400EA1130 /* MotionView.swift */; };
 		3491B8A227D2FD3D00EA1130 /* AnalyzationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491B8A127D2FD3D00EA1130 /* AnalyzationView.swift */; };
@@ -42,7 +42,6 @@
 		34BF336927B7321A00350785 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		34C77FAB27D817F200454BB6 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		34C77FAE27D8191400454BB6 /* country_codes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = country_codes.json; sourceTree = "<group>"; };
-		34DFCF5A27C710E00067769C /* sahha-swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "sahha-swift"; path = "../sahha-swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,7 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3429A51427FFBDAD00325AE0 /* Sahha in Frameworks */,
+				34842E932817B3D00041D262 /* Sahha in Frameworks */,
 				34BF336A27B7321A00350785 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -75,7 +74,6 @@
 		34BF334A27B6159500350785 = {
 			isa = PBXGroup;
 			children = (
-				34DFCF5A27C710E00067769C /* sahha-swift */,
 				34BF335527B6159500350785 /* SahhaDemo */,
 				34BF335427B6159500350785 /* Products */,
 				34BF336527B61B9100350785 /* Frameworks */,
@@ -147,7 +145,7 @@
 			);
 			name = SahhaDemo;
 			packageProductDependencies = (
-				3429A51327FFBDAD00325AE0 /* Sahha */,
+				34842E922817B3D00041D262 /* Sahha */,
 			);
 			productName = SahhaExample;
 			productReference = 34BF335327B6159500350785 /* Sahha Demo.app */;
@@ -179,6 +177,7 @@
 			);
 			mainGroup = 34BF334A27B6159500350785;
 			packageReferences = (
+				34842E912817B3D00041D262 /* XCRemoteSwiftPackageReference "sahha-swift" */,
 			);
 			productRefGroup = 34BF335427B6159500350785 /* Products */;
 			projectDirPath = "";
@@ -434,9 +433,21 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		34842E912817B3D00041D262 /* XCRemoteSwiftPackageReference "sahha-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sahha-ai/sahha-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
-		3429A51327FFBDAD00325AE0 /* Sahha */ = {
+		34842E922817B3D00041D262 /* Sahha */ = {
 			isa = XCSwiftPackageProductDependency;
+			package = 34842E912817B3D00041D262 /* XCRemoteSwiftPackageReference "sahha-swift" */;
 			productName = Sahha;
 		};
 /* End XCSwiftPackageProductDependency section */
