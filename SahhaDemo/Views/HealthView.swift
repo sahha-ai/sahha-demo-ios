@@ -59,6 +59,22 @@ struct HealthView: View {
                     }
                 }
             }
+            Section {
+                Button {
+                    Sahha.postSensorData { error, success in
+                        if let error = error {
+                            print(error)
+                        }
+                        print(success)
+                    }
+                } label: {
+                    HStack {
+                        Spacer()
+                        Text("Post")
+                        Spacer()
+                    }
+                }
+            }
         }
     }
 }

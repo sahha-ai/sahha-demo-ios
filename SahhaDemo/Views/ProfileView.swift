@@ -51,17 +51,18 @@ struct ProfileView: View {
                 Section {
                     Button {
                         hideKeyboard()
-                        let demographic = SahhaDemographic(age: age, gender: gender, country: country, birthCountry: country)
-                        Sahha.postDemographic(demographic) { error, value in
+                        let demographic = SahhaDemographic(age: age, gender: gender, country: country)
+                        print(demographic)
+                        Sahha.postDemographic(demographic) { error, success in
                             if let error = error {
                                 print(error)
                             }
-                            print(value)
+                            print(success)
                         }
                     } label: {
                         HStack {
                             Spacer()
-                            Text("Update")
+                            Text("Post")
                             Spacer()
                         }
                     }
@@ -76,6 +77,15 @@ struct ProfileView: View {
                             }
                             else if let value = value {
                                 print(value)
+                                if let age = value.age {
+                                    self.age = age
+                                }
+                                if let gender = value.gender {
+                                    self.gender = gender
+                                }
+                                if let country = value.country {
+                                    self.country = country
+                                }
                             }
                         }
                     } label: {

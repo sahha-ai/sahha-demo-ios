@@ -4,11 +4,11 @@ import SwiftUI
 import Sahha
 
 struct AuthenticationView: View {
-    @AppStorage("sahhaToken") private var sahhaToken: String = ""
+    @AppStorage("sahhaProfileToken") private var sahhaProfileToken: String = ""
     @AppStorage("sahhaRefreshToken") private var sahhaRefreshToken: String = ""
     
     var isSaveDisabled: Bool {
-        sahhaToken.isEmpty || sahhaRefreshToken.isEmpty
+        sahhaProfileToken.isEmpty || sahhaRefreshToken.isEmpty
     }
     
     var body: some View {
@@ -21,8 +21,8 @@ struct AuthenticationView: View {
                     Spacer()
                 }.font(.title)
             }
-            Section(header: Text("Token")) {
-                TextField("ABC-123", text: $sahhaToken).autocapitalization(.none)
+            Section(header: Text("Profile Token")) {
+                TextField("ABC-123", text: $sahhaProfileToken).autocapitalization(.none)
             }
             Section(header: Text("Refresh Token")) {
                 TextField("ABC-123", text: $sahhaRefreshToken).autocapitalization(.none)
@@ -30,7 +30,7 @@ struct AuthenticationView: View {
             Section {
                 Button {
                     hideKeyboard()
-                    Sahha.authenticate(token: sahhaToken, refreshToken: sahhaRefreshToken)
+                    Sahha.authenticate(profileToken: sahhaProfileToken, refreshToken: sahhaRefreshToken)
                 } label: {
                     HStack {
                         Spacer()
@@ -43,7 +43,7 @@ struct AuthenticationView: View {
                 Section {
                     Button {
                         hideKeyboard()
-                        sahhaToken = ""
+                        sahhaProfileToken = ""
                         sahhaRefreshToken = ""
                         Sahha.deauthenticate()
                     } label: {
