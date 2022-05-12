@@ -8,32 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		3429A51427FFBDAD00325AE0 /* Sahha in Frameworks */ = {isa = PBXBuildFile; productRef = 3429A51327FFBDAD00325AE0 /* Sahha */; };
-		3429A51727FFBFBB00325AE0 /* AppCenterAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 3429A51627FFBFBB00325AE0 /* AppCenterAnalytics */; };
-		3429A51927FFBFBB00325AE0 /* AppCenterCrashes in Frameworks */ = {isa = PBXBuildFile; productRef = 3429A51827FFBFBB00325AE0 /* AppCenterCrashes */; };
 		343BE21B27D042690064C9F2 /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343BE21A27D042690064C9F2 /* AuthenticationView.swift */; };
 		343BE21D27D076760064C9F2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343BE21C27D076760064C9F2 /* Extensions.swift */; };
-		346FA73027DC2F4D00383DDD /* MotionHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346FA72F27DC2F4D00383DDD /* MotionHistoryView.swift */; };
-		346FA73227DC359500383DDD /* HealthHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346FA73127DC359500383DDD /* HealthHistoryView.swift */; };
-		3491B89E27D2EBB700EA1130 /* HealthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491B89D27D2EBB700EA1130 /* HealthView.swift */; };
-		3491B8A027D2EBC400EA1130 /* MotionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491B89F27D2EBC400EA1130 /* MotionView.swift */; };
+		3491B89E27D2EBB700EA1130 /* SleepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491B89D27D2EBB700EA1130 /* SleepView.swift */; };
+		3491B8A027D2EBC400EA1130 /* PedometerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491B89F27D2EBC400EA1130 /* PedometerView.swift */; };
 		3491B8A227D2FD3D00EA1130 /* AnalyzationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491B8A127D2FD3D00EA1130 /* AnalyzationView.swift */; };
 		34BF335727B6159500350785 /* SahhaDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BF335627B6159500350785 /* SahhaDemoApp.swift */; };
 		34BF335927B6159500350785 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BF335827B6159500350785 /* ContentView.swift */; };
 		34BF335B27B6159900350785 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34BF335A27B6159900350785 /* Assets.xcassets */; };
 		34BF335E27B6159900350785 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34BF335D27B6159900350785 /* Preview Assets.xcassets */; };
 		34BF336A27B7321A00350785 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34BF336927B7321A00350785 /* HealthKit.framework */; };
-		34C77FAC27D817F200454BB6 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C77FAB27D817F200454BB6 /* ProfileView.swift */; };
+		34C77FAC27D817F200454BB6 /* DemographicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C77FAB27D817F200454BB6 /* DemographicView.swift */; };
 		34C77FAF27D8191400454BB6 /* country_codes.json in Resources */ = {isa = PBXBuildFile; fileRef = 34C77FAE27D8191400454BB6 /* country_codes.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		343BE21A27D042690064C9F2 /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
 		343BE21C27D076760064C9F2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		346FA72F27DC2F4D00383DDD /* MotionHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionHistoryView.swift; sourceTree = "<group>"; };
-		346FA73127DC359500383DDD /* HealthHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthHistoryView.swift; sourceTree = "<group>"; };
 		346FA73327DC542000383DDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		3491B89D27D2EBB700EA1130 /* HealthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthView.swift; sourceTree = "<group>"; };
-		3491B89F27D2EBC400EA1130 /* MotionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionView.swift; sourceTree = "<group>"; };
+		3491B89D27D2EBB700EA1130 /* SleepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepView.swift; sourceTree = "<group>"; };
+		3491B89F27D2EBC400EA1130 /* PedometerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PedometerView.swift; sourceTree = "<group>"; };
 		3491B8A127D2FD3D00EA1130 /* AnalyzationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzationView.swift; sourceTree = "<group>"; };
 		34BF335327B6159500350785 /* Sahha Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sahha Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		34BF335627B6159500350785 /* SahhaDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SahhaDemoApp.swift; sourceTree = "<group>"; };
@@ -42,7 +36,7 @@
 		34BF335D27B6159900350785 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		34BF336827B7321900350785 /* SahhaDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SahhaDemo.entitlements; sourceTree = "<group>"; };
 		34BF336927B7321A00350785 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
-		34C77FAB27D817F200454BB6 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		34C77FAB27D817F200454BB6 /* DemographicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemographicView.swift; sourceTree = "<group>"; };
 		34C77FAE27D8191400454BB6 /* country_codes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = country_codes.json; sourceTree = "<group>"; };
 		34DFCF5A27C710E00067769C /* sahha-swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "sahha-swift"; path = "../sahha-swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -54,8 +48,6 @@
 			files = (
 				3429A51427FFBDAD00325AE0 /* Sahha in Frameworks */,
 				34BF336A27B7321A00350785 /* HealthKit.framework in Frameworks */,
-				3429A51727FFBFBB00325AE0 /* AppCenterAnalytics in Frameworks */,
-				3429A51927FFBFBB00325AE0 /* AppCenterCrashes in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,12 +58,10 @@
 			isa = PBXGroup;
 			children = (
 				343BE21A27D042690064C9F2 /* AuthenticationView.swift */,
-				3491B89D27D2EBB700EA1130 /* HealthView.swift */,
-				346FA73127DC359500383DDD /* HealthHistoryView.swift */,
-				3491B89F27D2EBC400EA1130 /* MotionView.swift */,
-				346FA72F27DC2F4D00383DDD /* MotionHistoryView.swift */,
+				3491B89D27D2EBB700EA1130 /* SleepView.swift */,
+				3491B89F27D2EBC400EA1130 /* PedometerView.swift */,
 				3491B8A127D2FD3D00EA1130 /* AnalyzationView.swift */,
-				34C77FAB27D817F200454BB6 /* ProfileView.swift */,
+				34C77FAB27D817F200454BB6 /* DemographicView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -152,8 +142,6 @@
 			name = SahhaDemo;
 			packageProductDependencies = (
 				3429A51327FFBDAD00325AE0 /* Sahha */,
-				3429A51627FFBFBB00325AE0 /* AppCenterAnalytics */,
-				3429A51827FFBFBB00325AE0 /* AppCenterCrashes */,
 			);
 			productName = SahhaExample;
 			productReference = 34BF335327B6159500350785 /* Sahha Demo.app */;
@@ -185,7 +173,6 @@
 			);
 			mainGroup = 34BF334A27B6159500350785;
 			packageReferences = (
-				3429A51527FFBFBB00325AE0 /* XCRemoteSwiftPackageReference "appcenter-sdk-apple" */,
 			);
 			productRefGroup = 34BF335427B6159500350785 /* Products */;
 			projectDirPath = "";
@@ -214,15 +201,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34C77FAC27D817F200454BB6 /* ProfileView.swift in Sources */,
+				34C77FAC27D817F200454BB6 /* DemographicView.swift in Sources */,
 				34BF335927B6159500350785 /* ContentView.swift in Sources */,
 				34BF335727B6159500350785 /* SahhaDemoApp.swift in Sources */,
-				346FA73227DC359500383DDD /* HealthHistoryView.swift in Sources */,
 				343BE21B27D042690064C9F2 /* AuthenticationView.swift in Sources */,
-				346FA73027DC2F4D00383DDD /* MotionHistoryView.swift in Sources */,
-				3491B89E27D2EBB700EA1130 /* HealthView.swift in Sources */,
+				3491B89E27D2EBB700EA1130 /* SleepView.swift in Sources */,
 				3491B8A227D2FD3D00EA1130 /* AnalyzationView.swift in Sources */,
-				3491B8A027D2EBC400EA1130 /* MotionView.swift in Sources */,
+				3491B8A027D2EBC400EA1130 /* PedometerView.swift in Sources */,
 				343BE21D27D076760064C9F2 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -441,31 +426,10 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		3429A51527FFBFBB00325AE0 /* XCRemoteSwiftPackageReference "appcenter-sdk-apple" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/microsoft/appcenter-sdk-apple.git";
-			requirement = {
-				branch = develop;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
 /* Begin XCSwiftPackageProductDependency section */
 		3429A51327FFBDAD00325AE0 /* Sahha */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Sahha;
-		};
-		3429A51627FFBFBB00325AE0 /* AppCenterAnalytics */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3429A51527FFBFBB00325AE0 /* XCRemoteSwiftPackageReference "appcenter-sdk-apple" */;
-			productName = AppCenterAnalytics;
-		};
-		3429A51827FFBFBB00325AE0 /* AppCenterCrashes */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3429A51527FFBFBB00325AE0 /* XCRemoteSwiftPackageReference "appcenter-sdk-apple" */;
-			productName = AppCenterCrashes;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

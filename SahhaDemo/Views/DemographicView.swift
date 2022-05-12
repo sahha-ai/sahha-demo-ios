@@ -3,7 +3,7 @@
 import SwiftUI
 import Sahha
 
-struct ProfileView: View {
+struct DemographicView: View {
     
     @AppStorage("age") var age: Int = 0
     @State var countries: [String: String] = [:]
@@ -105,8 +105,8 @@ struct ProfileView: View {
     }
 }
 
-struct ProfileView_Previews: PreviewProvider {
+struct DemographicView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileView()
+        DemographicView()
     }
 }
