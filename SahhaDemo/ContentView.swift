@@ -12,44 +12,50 @@ struct ContentView: View {
                     Image("Icon").resizable().frame(width: 120, height: 120, alignment: .center)
                     Spacer()
                 }
-                NavigationLink {
-                    AuthenticationView()
-                } label: {
-                    HStack {
-                        Image(systemName: "lock.fill")
-                        Text("Authentication")
+                Section(header: Text("PROFILE")) {
+                    NavigationLink {
+                        AuthenticationView()
+                    } label: {
+                        HStack {
+                            Image(systemName: "lock.fill")
+                            Text("Authentication")
+                        }
+                    }
+                    NavigationLink {
+                        DemographicView()
+                    } label: {
+                        HStack {
+                            Image(systemName: "person.fill")
+                            Text("Demographic")
+                        }
                     }
                 }
-                NavigationLink {
-                    ProfileView()
-                } label: {
-                    HStack {
-                        Image(systemName: "person.fill")
-                        Text("Profile")
+                Section(header: Text("SENSORS")) {
+                    NavigationLink {
+                        SleepView()
+                    } label: {
+                        HStack {
+                            Image(systemName: "moon.zzz.fill")
+                            Text("Sleep")
+                        }
+                    }
+                    NavigationLink {
+                        PedometerView()
+                    } label: {
+                        HStack {
+                            Image(systemName: "figure.walk")
+                            Text("Pedometer")
+                        }
                     }
                 }
-                NavigationLink {
-                    HealthView()
-                } label: {
-                    HStack {
-                        Image(systemName: "heart.fill")
-                        Text("Health Activity")
-                    }
-                }
-                NavigationLink {
-                    MotionView()
-                } label: {
-                    HStack {
-                        Image(systemName: "figure.walk")
-                        Text("Motion Activity")
-                    }
-                }
-                NavigationLink {
-                    AnalyzationView()
-                } label: {
-                    HStack {
-                        Image(systemName: "brain.head.profile")
-                        Text("Analyzation")
+                Section(header: Text("DATA")) {
+                    NavigationLink {
+                        AnalyzationView()
+                    } label: {
+                        HStack {
+                            Image(systemName: "brain.head.profile")
+                            Text("Analyzation")
+                        }
                     }
                 }
             }

@@ -3,13 +3,13 @@
 import SwiftUI
 import Sahha
 
-struct MotionView: View {
+struct PedometerView: View {
     
-    @State var activityStatus: SahhaActivityStatus = .pending
-    @State var isActivitySettingsPrompt: Bool = false
+    @State var sensorStatus: SahhaSensorStatus = .pending
+    @State var isSensorSettingsPrompt: Bool = false
     
     var isActivityButtonEnabled: Bool {
-        activityStatus == .pending || activityStatus == .disabled
+        sensorStatus == .pending || sensorStatus == .disabled
     }
     
     var body: some View {
@@ -18,29 +18,31 @@ struct MotionView: View {
                 HStack {
                     Spacer()
                     Image(systemName: "figure.walk")
-                    Text("Motion")
+                    Text("Pedometer")
                     Spacer()
                 }.font(.title)
             }
             Section {
-                Picker("Activity Status", selection: .constant(activityStatus.rawValue)) {
+                Picker("Sensor Status", selection: .constant(sensorStatus.rawValue)) {
                     Text("Pending").tag(0)
                     Text("Unavailable").tag(1)
                     Text("Disabled").tag(2)
                     Text("Enabled").tag(3)
                 }.onAppear {
-                    activityStatus = Sahha.motion.activityStatus
+                    Sahha.getSensorStatus(.pedometer) { newStatus in
+                        sensorStatus = newStatus
+                    }
                 }
             }
             if isActivityButtonEnabled {
                 Section {
                     Button {
-                        Sahha.motion.activate { newStatus in
-                            activityStatus = newStatus
-                            print(activityStatus.description)
-                            switch activityStatus {
+                        Sahha.enableSensor(.pedometer) { newStatus in
+                            sensorStatus = newStatus
+                            print(sensorStatus.description)
+                            switch sensorStatus {
                             case .disabled:
-                                isActivitySettingsPrompt = true
+                                isSensorSettingsPrompt = true
                             default:
                                 break
                             }
@@ -52,7 +54,7 @@ struct MotionView: View {
                             Spacer()
                         }
                     }
-                    .alert(isPresented: $isActivitySettingsPrompt) {
+                    .alert(isPresented: $isSensorSettingsPrompt) {
                         Alert(
                             title: Text("Motion & Fitness"),
                             message: Text("Please enable this app to access your Motion & Fitness data"),
@@ -62,15 +64,15 @@ struct MotionView: View {
                         )
                     }
                 }
-            }
-            if activityStatus == .enabled {
+            } else {
                 Section {
-                    NavigationLink {
-                        MotionHistoryView()
+                    Button {
+                        Sahha.openAppSettings()
                     } label: {
                         HStack {
-                            Image(systemName: "clock")
-                            Text("Activity History").bold()
+                            Spacer()
+                            Text("Open App Settings")
+                            Spacer()
                         }
                     }
                 }
@@ -79,8 +81,8 @@ struct MotionView: View {
     }
 }
 
-struct MotionView_Previews: PreviewProvider {
+struct PedometerView_Previews: PreviewProvider {
     static var previews: some View {
-        MotionView()
+        PedometerView()
     }
 }
