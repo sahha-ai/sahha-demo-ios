@@ -49,6 +49,9 @@ struct AnalyzationView: View {
                     Spacer()
                 }.font(.title)
             }
+            Section {
+                Text("A new analysis will be available every 24 hours. If an analysis is empty {}, it means more sensor data must be collected. Try again in 24 hours. ").font(.caption).multilineTextAlignment(.center)
+            }
             if isAnalyzeButtonEnabled {
                 Section {
                     Button {
@@ -76,6 +79,33 @@ struct AnalyzationView: View {
             if analyzationString.isEmpty == false {
                 Section {
                     Text(analyzationString).font(.caption)
+                } header : {
+                    HStack {
+                        Spacer()
+                        Text("Analysis")
+                        Spacer()
+                    }
+                }
+            } else {
+                Section {
+                    Text("""
+                       {
+                         "inferences": [
+                           {
+                             "createdAt": "2022-06-09T00:30:00+00:00",
+                             "modelName": "automl_toolkit_randomForest",
+                             "predictionState": "not_depressed",
+                             "predictionSubState": "",
+                             "predictionRange": -1,
+                             "predictionConfidence": 0.8,
+                             "dataSource": [
+                               "sleep",
+                               "screenTime"
+                             ]
+                           }
+                         ]
+                       }
+    """).font(.caption)
                 } header : {
                     HStack {
                         Spacer()
