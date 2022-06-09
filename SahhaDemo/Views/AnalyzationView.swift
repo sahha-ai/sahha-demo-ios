@@ -78,7 +78,9 @@ struct AnalyzationView: View {
             }
             if analyzationString.isEmpty == false {
                 Section {
-                    Text(analyzationString).font(.caption)
+                    ScrollView(.horizontal) {
+                        Text(analyzationString).font(.caption)
+                    }
                 } header : {
                     HStack {
                         Spacer()
@@ -88,24 +90,26 @@ struct AnalyzationView: View {
                 }
             } else {
                 Section {
+                    ScrollView(.horizontal) {
                     Text("""
-                       {
-                         "inferences": [
-                           {
-                             "createdAt": "2022-06-09T00:30:00+00:00",
-                             "modelName": "automl_toolkit_randomForest",
-                             "predictionState": "not_depressed",
-                             "predictionSubState": "",
-                             "predictionRange": -1,
-                             "predictionConfidence": 0.8,
-                             "dataSource": [
-                               "sleep",
-                               "screenTime"
-                             ]
-                           }
-                         ]
-                       }
+    {
+        "inferences": [
+            {
+                "createdAt": "2022-06-09T00:30:00+00:00",
+                "modelName": "automl_toolkit_randomForest",
+                "predictionState": "not_depressed",
+                "predictionSubState": "",
+                "predictionRange": -1,
+                "predictionConfidence": 0.8,
+                "dataSource": [
+                    "sleep",
+                    "screenTime"
+                ]
+            }
+        ]
+    }
     """).font(.caption)
+                    }
                 } header : {
                     HStack {
                         Spacer()
