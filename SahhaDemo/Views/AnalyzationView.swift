@@ -7,11 +7,12 @@ struct AnalyzationView: View {
     
     @State var analyzationString: String = ""
     @State var isAnalyzeButtonEnabled: Bool = true
-        
+    @AppStorage("isincludeSourceData") var isincludeSourceData: Bool = false
+    
     func getAnalyzationForToday() {
         analyzationString = "Waiting..."
         isAnalyzeButtonEnabled = false
-        Sahha.analyze { error, json in
+        Sahha.analyze(includeSourceData: isincludeSourceData) { error, json in
             isAnalyzeButtonEnabled = true
             if let error = error {
                 print(error)
@@ -27,7 +28,7 @@ struct AnalyzationView: View {
         analyzationString = "Waiting..."
         let today = Date()
         let sevenDaysAgo = Calendar.current.date(byAdding: .day, value: -7, to: today) ?? Date()
-        Sahha.analyze(dates: (sevenDaysAgo, today)) { error, json in
+        Sahha.analyze(dates: (sevenDaysAgo, today), includeSourceData: isincludeSourceData) { error, json in
             isAnalyzeButtonEnabled = true
             if let error = error {
                 print(error)
@@ -53,6 +54,10 @@ struct AnalyzationView: View {
                 Text("A new analysis will be available every 24 hours. If an analysis is empty {}, it means more sensor data must be collected. Try again in 24 hours. ").font(.caption).multilineTextAlignment(.center)
             }
             if isAnalyzeButtonEnabled {
+                Section {
+                    Text("Include a list of the source data used to generate the analysis?").font(.caption)
+                    Toggle("Include Source Data", isOn: $isincludeSourceData)
+                }
                 Section {
                     Button {
                         getAnalyzationForToday()
@@ -91,7 +96,7 @@ struct AnalyzationView: View {
             } else {
                 Section {
                     ScrollView(.horizontal) {
-                    Text("""
+                        Text("""
     {
         "inferences": [
             {
