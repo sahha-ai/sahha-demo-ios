@@ -7,10 +7,6 @@ struct SleepView: View {
     
     @State var sensorStatus: SahhaSensorStatus = .pending
     
-    var isActivityButtonEnabled: Bool {
-        sensorStatus == .pending || sensorStatus == .disabled
-    }
-    
     var body: some View {
         List {
             Section {
@@ -33,7 +29,7 @@ struct SleepView: View {
                     }
                 }
             }
-            if isActivityButtonEnabled {
+            if sensorStatus == .pending {
                 Section {
                     Button {
                         Sahha.enableSensor(.sleep) { newStatus in
