@@ -6,11 +6,6 @@ import Sahha
 struct PedometerView: View {
     
     @State var sensorStatus: SahhaSensorStatus = .pending
-    @State var isSensorSettingsPrompt: Bool = false
-    
-    var isActivityButtonEnabled: Bool {
-        sensorStatus == .pending || sensorStatus == .disabled
-    }
     
     var body: some View {
         List {
@@ -34,18 +29,12 @@ struct PedometerView: View {
                     }
                 }
             }
-            if isActivityButtonEnabled {
+            if sensorStatus == .pending {
                 Section {
                     Button {
                         Sahha.enableSensor(.pedometer) { newStatus in
                             sensorStatus = newStatus
                             print(sensorStatus.description)
-                            switch sensorStatus {
-                            case .disabled:
-                                isSensorSettingsPrompt = true
-                            default:
-                                break
-                            }
                         }
                     } label: {
                         HStack {
@@ -53,15 +42,6 @@ struct PedometerView: View {
                             Text("Enable")
                             Spacer()
                         }
-                    }
-                    .alert(isPresented: $isSensorSettingsPrompt) {
-                        Alert(
-                            title: Text("Motion & Fitness"),
-                            message: Text("Please enable this app to access your Motion & Fitness data"),
-                            dismissButton: .default(Text("Open App Settings"), action: {
-                                Sahha.openAppSettings()
-                            })
-                        )
                     }
                 }
             } else {
