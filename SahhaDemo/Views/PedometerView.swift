@@ -24,7 +24,7 @@ struct PedometerView: View {
                     Text("Disabled").tag(2)
                     Text("Enabled").tag(3)
                 }.onAppear {
-                    Sahha.getSensorStatus(.pedometer) { newStatus in
+                    Sahha.getSensorStatus { newStatus in
                         sensorStatus = newStatus
                     }
                 }
@@ -32,7 +32,7 @@ struct PedometerView: View {
             if sensorStatus == .pending {
                 Section {
                     Button {
-                        Sahha.enableSensor(.pedometer) { newStatus in
+                        Sahha.enableSensors { newStatus in
                             sensorStatus = newStatus
                             print(sensorStatus.description)
                         }

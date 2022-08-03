@@ -24,7 +24,7 @@ struct SleepView: View {
                     Text("Disabled").tag(2)
                     Text("Enabled").tag(3)
                 }.onAppear {
-                    Sahha.getSensorStatus(.sleep) { newStatus in
+                    Sahha.getSensorStatus { newStatus in
                         sensorStatus = newStatus
                     }
                 }
@@ -32,7 +32,7 @@ struct SleepView: View {
             if sensorStatus == .pending {
                 Section {
                     Button {
-                        Sahha.enableSensor(.sleep) { newStatus in
+                        Sahha.enableSensors { newStatus in
                             sensorStatus = newStatus
                             print("Sahha | Sleep sensor status: ", sensorStatus.description)
                         }
