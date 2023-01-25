@@ -1,6 +1,6 @@
 # Sahha Demo App for iOS
 
-The Sahha Demo App provides a convenient way to try the features of the Sahha SDK.
+The Sahha Demo App provides a convenient way to try the features of the Sahha API and SDK.
 
 ---
 
@@ -8,23 +8,15 @@ The Sahha Demo App provides a convenient way to try the features of the Sahha SD
 
 The Sahha API provides a convenient way to analyze health patterns.
 
-[Sahha API](https://sandbox-api.sahha.ai/index.html)
+[Sahha API](https://developer.sahha.ai/reference)
 
 ---
 
 ## SDK
 
-The Sahha SDK provides a convenient way for iOS apps to connect to the Sahha API.
+The Sahha SDK provides a convenient way for Android apps to connect to the Sahha API.
 
-[Sahha SDK](https://github.com/sahha-ai/sahha-swift)
-
----
-
-## Docs
-
-The Sahha Docs provide detailed instructions for installation and usage of the Sahha SDK.
-
-[Sahha Docs](https://developer.sahha.ai/docs/ios.html)
+[Sahha SDK](https://developer.sahha.ai/docs)
 
 ---
 
