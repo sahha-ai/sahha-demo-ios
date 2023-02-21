@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		343BE21B27D042690064C9F2 /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343BE21A27D042690064C9F2 /* AuthenticationView.swift */; };
 		343BE21D27D076760064C9F2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343BE21C27D076760064C9F2 /* Extensions.swift */; };
+		343D6E8529A5913900493432 /* Sahha in Frameworks */ = {isa = PBXBuildFile; productRef = 343D6E8429A5913900493432 /* Sahha */; };
 		3491B89E27D2EBB700EA1130 /* SleepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491B89D27D2EBB700EA1130 /* SleepView.swift */; };
 		3491B8A027D2EBC400EA1130 /* PedometerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491B89F27D2EBC400EA1130 /* PedometerView.swift */; };
 		3491B8A227D2FD3D00EA1130 /* AnalyzationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491B8A127D2FD3D00EA1130 /* AnalyzationView.swift */; };
@@ -44,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				343D6E8529A5913900493432 /* Sahha in Frameworks */,
 				34BF336A27B7321A00350785 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,6 +139,7 @@
 			);
 			name = SahhaDemo;
 			packageProductDependencies = (
+				343D6E8429A5913900493432 /* Sahha */,
 			);
 			productName = SahhaExample;
 			productReference = 34BF335327B6159500350785 /* Sahha Demo.app */;
@@ -168,6 +171,7 @@
 			);
 			mainGroup = 34BF334A27B6159500350785;
 			packageReferences = (
+				343D6E8329A5913900493432 /* XCRemoteSwiftPackageReference "sahha-swift" */,
 			);
 			productRefGroup = 34BF335427B6159500350785 /* Products */;
 			projectDirPath = "";
@@ -416,6 +420,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		343D6E8329A5913900493432 /* XCRemoteSwiftPackageReference "sahha-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sahha-ai/sahha-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.5;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		343D6E8429A5913900493432 /* Sahha */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 343D6E8329A5913900493432 /* XCRemoteSwiftPackageReference "sahha-swift" */;
+			productName = Sahha;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 34BF334B27B6159500350785 /* Project object */;
 }
