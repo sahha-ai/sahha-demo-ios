@@ -5,12 +5,15 @@ import Sahha
 
 @main
 struct SahhaDemoApp: App {
+    
+    init() {
+        let settings = SahhaSettings(environment: .development)
+        Sahha.configure(settings)
+    }
+
     var body: some Scene {
         WindowGroup {
-            ContentView().onAppear {
-                let settings = SahhaSettings(environment: .development)
-                Sahha.configure(settings)
-            }
+            ContentView()
         }
     }
 }
