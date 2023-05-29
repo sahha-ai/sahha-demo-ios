@@ -5,13 +5,13 @@ import Sahha
 
 struct DemographicView: View {
     
-    @AppStorage("age") var age: Int = 0
+    @State var birthDate = Date()
     @State var countries: [String: String] = [:]
     @AppStorage("country") var country: String = ""
     let genders: [String] = ["Male", "Female", "Gender Diverse"]
     @AppStorage("gender") var gender: String = ""
     var isInvalid: Bool {
-        return age == 0 || country.isEmpty || gender.isEmpty
+        return country.isEmpty || gender.isEmpty
     }
     
     var body: some View {
@@ -20,14 +20,16 @@ struct DemographicView: View {
                 HStack {
                     Spacer()
                     Image(systemName: "person.fill")
-                    Text("Profile")
+                    Text("Demographic")
                     Spacer()
                 }.font(.title)
             }
             Section {
-                TextField("Enter Your Age", value: $age, formatter: NumberFormatter()).keyboardType(.numbersAndPunctuation)
+                DatePicker(selection: $birthDate, in: ...Date(), displayedComponents: .date) {
+                     Text("Select")
+                 }
             } header: {
-                Text("Age")
+                Text("Birthday")
             }
             Section {
                 Picker("Select", selection: $gender) {
@@ -51,7 +53,7 @@ struct DemographicView: View {
                 Section {
                     Button {
                         hideKeyboard()
-                        let demographic = SahhaDemographic(age: age, gender: gender, country: country)
+                        let demographic = SahhaDemographic(gender: gender, country: country, birthDate: birthDate.toYMDFormat)
                         print(demographic)
                         Sahha.postDemographic(demographic) { error, success in
                             if let error = error {
@@ -77,14 +79,14 @@ struct DemographicView: View {
                             }
                             else if let value = value {
                                 print(value)
-                                if let age = value.age {
-                                    self.age = age
+                                if let stringValue = value.birthDate {
+                                    birthDate = stringValue.dateFromYMDFormat
                                 }
-                                if let gender = value.gender {
-                                    self.gender = gender
+                                if let stringValue = value.gender {
+                                    self.gender = stringValue
                                 }
-                                if let country = value.country {
-                                    self.country = country
+                                if let stringValue = value.country {
+                                    self.country = stringValue
                                 }
                             }
                         }
@@ -98,9 +100,14 @@ struct DemographicView: View {
                 }
             }
         }.onAppear {
+            if let date = UserDefaults.standard.object(forKey: "birthDate") as? Date {
+                birthDate = date
+            }
             if let jsonFile = Bundle.main.url(forResource: "country_codes", withExtension: "json"), let jsonData = try? Data(contentsOf: jsonFile), let jsonObject = try? JSONSerialization.jsonObject(with: jsonData, options: []), let jsonDictionary = jsonObject as? [String: String] {
                 countries = jsonDictionary
             }
+        }.onChange(of: birthDate) { newValue in
+            UserDefaults.standard.set(newValue, forKey: "birthDate")
         }
     }
 }

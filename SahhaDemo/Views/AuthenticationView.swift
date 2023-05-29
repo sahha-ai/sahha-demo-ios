@@ -4,12 +4,15 @@ import SwiftUI
 import Sahha
 
 struct AuthenticationView: View {
-    @AppStorage("sahhaProfileToken") private var sahhaProfileToken: String = ""
-    @AppStorage("sahhaRefreshToken") private var sahhaRefreshToken: String = ""
+    @AppStorage("sahhaAppId") private var sahhaAppId: String = ""
+    @AppStorage("sahhaAppSecret") private var sahhaAppSecret: String = ""
+    @AppStorage("sahhaExternalId") private var sahhaExternalId: String = ""
     
     var isSaveDisabled: Bool {
-        sahhaProfileToken.isEmpty || sahhaRefreshToken.isEmpty
+        sahhaAppId.isEmpty || sahhaAppSecret.isEmpty || sahhaExternalId.isEmpty
     }
+    
+    @State var isAuthenticated = Sahha.isAuthenticated
     
     var body: some View {
         List {
@@ -21,16 +24,28 @@ struct AuthenticationView: View {
                     Spacer()
                 }.font(.title)
             }
-            Section(header: Text("Profile Token")) {
-                TextField("ABC-123", text: $sahhaProfileToken).autocapitalization(.none)
+            Section {
+                Toggle("AUTHENTICATED", isOn: $isAuthenticated).disabled(true)
             }
-            Section(header: Text("Refresh Token")) {
-                TextField("ABC-123", text: $sahhaRefreshToken).autocapitalization(.none)
+            Section(header: Text("App ID")) {
+                TextField("ABC-123", text: $sahhaAppId).autocapitalization(.none)
+            }
+            Section(header: Text("App Secret")) {
+                TextField("ABC-123", text: $sahhaAppSecret).autocapitalization(.none)
+            }
+            Section(header: Text("External ID")) {
+                TextField("ABC-123", text: $sahhaExternalId).autocapitalization(.none)
             }
             Section {
                 Button {
                     hideKeyboard()
-                    Sahha.authenticate(profileToken: sahhaProfileToken, refreshToken: sahhaRefreshToken)
+                    Sahha.authenticate(appId: sahhaAppId, appSecret: sahhaAppSecret, externalId: sahhaExternalId) { error, success in
+                        if let error = error {
+                            print(error)
+                        } else if success {
+                            print("You are now authenticated")
+                        }
+                    }
                 } label: {
                     HStack {
                         Spacer()
@@ -43,8 +58,9 @@ struct AuthenticationView: View {
                 Section {
                     Button {
                         hideKeyboard()
-                        sahhaProfileToken = ""
-                        sahhaRefreshToken = ""
+                        sahhaAppId = ""
+                        sahhaAppSecret = ""
+                        sahhaExternalId = ""
                         Sahha.deauthenticate()
                     } label: {
                         HStack {
