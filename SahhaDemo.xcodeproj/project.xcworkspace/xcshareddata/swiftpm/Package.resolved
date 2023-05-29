@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/sahha-ai/sahha-swift",
       "state" : {
-        "revision" : "41e884ab4445824a7254593f8f9c30880b909f2e",
-        "version" : "0.1.5"
+        "revision" : "ff761b4fbeb4ec8eb4d827999d5d06d3591881d5",
+        "version" : "0.2.4"
       }
     }
   ],
