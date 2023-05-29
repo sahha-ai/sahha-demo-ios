@@ -9,6 +9,7 @@ struct SahhaDemoApp: App {
     init() {
         let settings = SahhaSettings(environment: .development)
         Sahha.configure(settings)
+        UITextField.appearance().clearButtonMode = .whileEditing
     }
 
     var body: some Scene {
