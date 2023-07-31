@@ -427,7 +427,7 @@
 			repositoryURL = "https://github.com/sahha-ai/sahha-swift";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.2.4;
+				minimumVersion = 0.2.5;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
