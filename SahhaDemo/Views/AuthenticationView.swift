@@ -11,9 +11,7 @@ struct AuthenticationView: View {
     var isSaveDisabled: Bool {
         sahhaAppId.isEmpty || sahhaAppSecret.isEmpty || sahhaExternalId.isEmpty
     }
-    
-    @State var isAuthenticated = Sahha.isAuthenticated
-    
+        
     var body: some View {
         List {
             Section {
@@ -25,7 +23,7 @@ struct AuthenticationView: View {
                 }.font(.title)
             }
             Section {
-                Toggle("AUTHENTICATED", isOn: $isAuthenticated).disabled(true)
+                Toggle("AUTHENTICATED", isOn: .constant(Sahha.isAuthenticated)).disabled(true)
             }
             Section(header: Text("App ID")) {
                 TextField("ABC-123", text: $sahhaAppId).autocapitalization(.none)
@@ -58,10 +56,15 @@ struct AuthenticationView: View {
                 Section {
                     Button {
                         hideKeyboard()
-                        sahhaAppId = ""
-                        sahhaAppSecret = ""
-                        sahhaExternalId = ""
-                        Sahha.deauthenticate()
+                        Sahha.deauthenticate { error, success in
+                            if let error = error {
+                                print(error)
+                            } else if success {
+                                sahhaAppId = ""
+                                sahhaAppSecret = ""
+                                sahhaExternalId = ""
+                            }
+                        }
                     } label: {
                         HStack {
                             Spacer()
