@@ -3,13 +3,13 @@
 import SwiftUI
 import Sahha
 
-struct AnalyzationView: View {
+struct AnalysisView: View {
     
-    @State var analyzationString: String = ""
+    @State var analysisString: String = ""
     @State var isAnalyzeButtonEnabled: Bool = true
     
-    func getAnalyzationForToday() {
-        analyzationString = "Waiting..."
+    func getAnalysisForToday() {
+        analysisString = "Waiting..."
         isAnalyzeButtonEnabled = false
         Sahha.analyze() { error, json in
             isAnalyzeButtonEnabled = true
@@ -18,13 +18,13 @@ struct AnalyzationView: View {
             }
             else if let json = json {
                 print(json)
-                analyzationString = json
+                analysisString = json
             }
         }
     }
     
-    func getAnalyzationForThisWeek() {
-        analyzationString = "Waiting..."
+    func getAnalysisForThisWeek() {
+        analysisString = "Waiting..."
         let today = Date()
         let sevenDaysAgo = Calendar.current.date(byAdding: .day, value: -7, to: today) ?? Date()
         Sahha.analyze(dates: (sevenDaysAgo, today)) { error, json in
@@ -34,7 +34,7 @@ struct AnalyzationView: View {
             }
             else if let json = json {
                 print(json)
-                analyzationString = json
+                analysisString = json
             }
         }
     }
@@ -55,7 +55,7 @@ struct AnalyzationView: View {
             if isAnalyzeButtonEnabled {
                 Section {
                     Button {
-                        getAnalyzationForToday()
+                        getAnalysisForToday()
                     } label: {
                         HStack {
                             Spacer()
@@ -66,7 +66,7 @@ struct AnalyzationView: View {
                 }
                 Section {
                     Button {
-                        getAnalyzationForThisWeek()
+                        getAnalysisForThisWeek()
                     } label: {
                         HStack {
                             Spacer()
@@ -76,10 +76,10 @@ struct AnalyzationView: View {
                     }
                 }
             }
-            if analyzationString.isEmpty == false {
+            if analysisString.isEmpty == false {
                 Section {
                     ScrollView(.horizontal) {
-                        Text(analyzationString).font(.caption)
+                        Text(analysisString).font(.caption)
                     }
                 } header : {
                     HStack {
@@ -124,6 +124,6 @@ struct AnalyzationView: View {
 
 struct AnalyzationView_Previews: PreviewProvider {
     static var previews: some View {
-        AnalyzationView()
+        AnalysisView()
     }
 }
