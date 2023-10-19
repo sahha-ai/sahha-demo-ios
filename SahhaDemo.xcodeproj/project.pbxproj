@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		343BE21B27D042690064C9F2 /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343BE21A27D042690064C9F2 /* AuthenticationView.swift */; };
 		343BE21D27D076760064C9F2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343BE21C27D076760064C9F2 /* Extensions.swift */; };
+		3443FBA22AD3B3EE00E1EDC6 /* InsightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3443FBA12AD3B3EE00E1EDC6 /* InsightView.swift */; };
 		3491B89E27D2EBB700EA1130 /* SleepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491B89D27D2EBB700EA1130 /* SleepView.swift */; };
 		3491B8A027D2EBC400EA1130 /* PedometerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491B89F27D2EBC400EA1130 /* PedometerView.swift */; };
 		3491B8A227D2FD3D00EA1130 /* AnalyzationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491B8A127D2FD3D00EA1130 /* AnalyzationView.swift */; };
@@ -23,8 +24,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		343551E02A9C6418005BF0EA /* sahha-swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "sahha-swift"; path = "../sahha-swift"; sourceTree = "<group>"; };
 		343BE21A27D042690064C9F2 /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
 		343BE21C27D076760064C9F2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		3443FBA12AD3B3EE00E1EDC6 /* InsightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightView.swift; sourceTree = "<group>"; };
 		346FA73327DC542000383DDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		3491B89D27D2EBB700EA1130 /* SleepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepView.swift; sourceTree = "<group>"; };
 		3491B89F27D2EBC400EA1130 /* PedometerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PedometerView.swift; sourceTree = "<group>"; };
@@ -53,6 +56,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		343551DF2A9C6418005BF0EA /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				343551E02A9C6418005BF0EA /* sahha-swift */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
 		343BE21927D042460064C9F2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -61,6 +72,7 @@
 				3491B89F27D2EBC400EA1130 /* PedometerView.swift */,
 				3491B8A127D2FD3D00EA1130 /* AnalyzationView.swift */,
 				34C77FAB27D817F200454BB6 /* DemographicView.swift */,
+				3443FBA12AD3B3EE00E1EDC6 /* InsightView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -68,6 +80,7 @@
 		34BF334A27B6159500350785 = {
 			isa = PBXGroup;
 			children = (
+				343551DF2A9C6418005BF0EA /* Packages */,
 				34BF335527B6159500350785 /* SahhaDemo */,
 				34BF335427B6159500350785 /* Products */,
 				34BF336527B61B9100350785 /* Frameworks */,
@@ -200,6 +213,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3443FBA22AD3B3EE00E1EDC6 /* InsightView.swift in Sources */,
 				34C77FAC27D817F200454BB6 /* DemographicView.swift in Sources */,
 				34BF335927B6159500350785 /* ContentView.swift in Sources */,
 				34BF335727B6159500350785 /* SahhaDemoApp.swift in Sources */,
@@ -344,13 +358,12 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SahhaDemo/Info.plist;
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "Sahha Demo would like access to your health activity for analysis.";
-				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Sahha Demo would like access to your health activity for analysis.";
-				INFOPLIST_KEY_NSMotionUsageDescription = "Sahha Demo would like access to your motion activity for analysis.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -378,13 +391,12 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SahhaDemo/Info.plist;
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "Sahha Demo would like access to your health activity for analysis.";
-				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Sahha Demo would like access to your health activity for analysis.";
-				INFOPLIST_KEY_NSMotionUsageDescription = "Sahha Demo would like access to your motion activity for analysis.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -427,7 +439,7 @@
 			repositoryURL = "https://github.com/sahha-ai/sahha-swift";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.2.5;
+				minimumVersion = 0.3.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
