@@ -117,3 +117,24 @@ struct DemographicView_Previews: PreviewProvider {
         DemographicView()
     }
 }
+
+public extension Date {
+    var toYMDFormat: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSZZZZZ"
+        return dateFormatter.string(from: self)
+    }
+}
+
+public extension String {
+    var dateFromYMDFormat: Date {
+        let dateFormatterGet = DateFormatter()
+        dateFormatterGet.dateFormat = "yyyy-MM-dd"
+        if let date = dateFormatterGet.date(from: self) {
+            return date
+        } else {
+            Sahha.postError(framework: .ios_swift, message: "String to date conversion failed", path: "Sahha+Extensions_String", method: "dateFromYMDFormat", body: self)
+            return Date()
+        }
+    }
+}

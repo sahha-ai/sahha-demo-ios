@@ -5,6 +5,8 @@ import Sahha
 
 struct ContentView: View {
     
+    @State var sensorStatus: SahhaSensorStatus = .pending
+    
     var body: some View {
         NavigationView {
             List {
@@ -32,20 +34,38 @@ struct ContentView: View {
                     }
                 }
                 Section(header: Text("SENSORS")) {
-                    NavigationLink {
-                        SleepView()
-                    } label: {
-                        HStack {
-                            Image(systemName: "moon.zzz.fill")
-                            Text("Sleep")
+                    Picker("Sensor Status", selection: .constant(sensorStatus.rawValue)) {
+                        Text("Pending").tag(0)
+                        Text("Unavailable").tag(1)
+                        Text("Disabled").tag(2)
+                        Text("Enabled").tag(3)
+                    }.onAppear {
+                        Sahha.getSensorStatus { error, status in
+                            sensorStatus = status
                         }
                     }
-                    NavigationLink {
-                        PedometerView()
-                    } label: {
-                        HStack {
-                            Image(systemName: "figure.walk")
-                            Text("Pedometer")
+                    if sensorStatus == .pending {
+                        Button {
+                            Sahha.enableSensors { error, status in
+                                sensorStatus = status
+                                print("Sahha | Sleep sensor status: ", sensorStatus.description)
+                            }
+                        } label: {
+                            HStack {
+                                Spacer()
+                                Text("Enable")
+                                Spacer()
+                            }
+                        }
+                    } else {
+                        Button {
+                            Sahha.openAppSettings()
+                        } label: {
+                            HStack {
+                                Spacer()
+                                Text("Open App Settings")
+                                Spacer()
+                            }
                         }
                     }
                 }
@@ -69,7 +89,7 @@ struct ContentView: View {
                         }
                     }
                 }
-                Section(header: Text("Surveyrs")) {
+                Section(header: Text("Surveys")) {
                     NavigationLink("TypeForm") {
                         WebView(url: URL(string: "https://p7g2dr2gsxx.typeform.com/to/uUNXxdxn#inference_id=ABC123")!)
                             .ignoresSafeArea()
@@ -82,6 +102,15 @@ struct ContentView: View {
                             .navigationTitle("Tally")
                             .navigationBarTitleDisplayMode(.inline)
                     }
+                }
+                Section(header: Text("Errors")) {
+                    Button {
+                        let body = "isProtectedDataAvailable : \(UIApplication.shared.isProtectedDataAvailable.description)"
+                        Sahha.postError(message: "TEST", path: "content", method: "test", body: body)
+                    } label: {
+                        Text("ERROR")
+                    }
+
                 }
             }
         }

@@ -52,25 +52,19 @@ struct AuthenticationView: View {
                     }
                 }.disabled(isSaveDisabled)
             }
-            if isSaveDisabled == false {
-                Section {
-                    Button {
-                        hideKeyboard()
-                        Sahha.deauthenticate { error, success in
-                            if let error = error {
-                                print(error)
-                            } else if success {
-                                sahhaAppId = ""
-                                sahhaAppSecret = ""
-                                sahhaExternalId = ""
-                            }
+            Section {
+                Button {
+                    hideKeyboard()
+                    Sahha.deauthenticate { error, success in
+                        if success {
+                            sahhaExternalId = ""
                         }
-                    } label: {
-                        HStack {
-                            Spacer()
-                            Text("Delete")
-                            Spacer()
-                        }
+                    }
+                } label: {
+                    HStack {
+                        Spacer()
+                        Text("Reset")
+                        Spacer()
                     }
                 }
             }

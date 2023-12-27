@@ -12,31 +12,23 @@ import Charts
 
 struct InsightView: View {
     
-    @State var movementInsights: [SahhaInsight] = []
-    @State var bedInsights: [SahhaInsight] = []
-    @State var sleepInsights: [SahhaInsight] = []
+    @State var insights: [SahhaInsightIdentifier:[SahhaInsight]] = [:]
     
     func getInsightsForThisWeek() {
         let today = Date()
-        let sevenDaysAgo = Calendar.current.date(byAdding: .day, value: -6, to: today) ?? Date()
+        let sevenDaysAgo = Calendar.current.date(byAdding: .day, value: -7, to: today) ?? Date()
         Sahha.getInsights(dates: (startDate: sevenDaysAgo, endDate: today)) { error, newInsights in
             if let error = error {
                 print(error)
+                return
             }
-            movementInsights = []
-            bedInsights = []
-            sleepInsights = []
+            for insightName in SahhaInsightIdentifier.allCases {
+                insights[insightName] = []
+            }
             for insight in newInsights {
-                print(insight.name, insight.endDate.toYMDFormat, insight.value)
-                if insight.name == "StepCountDailyTotal" {
-                    movementInsights.append(insight)
-                } else if insight.name == "TimeInBedDailyTotal" {
-                    bedInsights.append(insight)
-                } else if insight.name == "TimeAsleepDailyTotal" {
-                    sleepInsights.append(insight)
-                }
+                print(insight.name, insight.value, insight.unit, insight.startDate.toYMDFormat, insight.endDate.toYMDFormat)
+                insights[insight.name]?.append(insight)
             }
-
         }
     }
     
@@ -50,35 +42,8 @@ struct InsightView: View {
                     Spacer()
                 }.font(.title)
             }
-            Section("Step Count") {
-                Chart {
-                    ForEach(movementInsights, id: \.name) { insight in
-                        BarMark(
-                            x: .value("Day", insight.startDate.formatted(Date.FormatStyle().weekday(.abbreviated))),
-                            y: .value("Count", insight.value)
-                        )
-                    }
-                }.tint(.accentColor)
-            }
-            Section("Time in Bed") {
-                Chart {
-                    ForEach(bedInsights, id: \.name) { insight in
-                        BarMark(
-                            x: .value("Day", insight.startDate.formatted(Date.FormatStyle().weekday(.abbreviated))),
-                            y: .value("Count", insight.value)
-                        )
-                    }
-                }.tint(.accentColor)
-            }
-            Section("Time Asleep") {
-                Chart {
-                    ForEach(sleepInsights, id: \.name) { insight in
-                        BarMark(
-                            x: .value("Day", insight.startDate.formatted(Date.FormatStyle().weekday(.abbreviated))),
-                            y: .value("Count", insight.value)
-                        )
-                    }
-                }.tint(.accentColor)
+            ForEach(insights.sorted(by: { $0.key.rawValue < $1.key.rawValue }), id: \.key) { insightElement in
+                ChartView(insightName: insightElement.key.rawValue, insights: insightElement.value)
             }
         }.onAppear(perform: {
             getInsightsForThisWeek()
@@ -88,4 +53,23 @@ struct InsightView: View {
 
 #Preview {
     InsightView()
+}
+
+struct ChartView: View {
+    
+    @State var insightName: String = ""
+    @State var insights: [SahhaInsight] = []
+    
+    var body: some View {
+        Section(insightName) {
+            Chart {
+                ForEach(insights.sorted(by: { $0.startDate < $1.startDate }), id: \.name) { insight in
+                    BarMark(
+                        x: .value("Day", insight.startDate.formatted(Date.FormatStyle().weekday(.abbreviated))),
+                        y: .value("Count", insight.value)
+                    )
+                }
+            }.tint(.accentColor)
+        }
+    }
 }
