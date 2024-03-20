@@ -121,6 +121,11 @@ struct DemographicView_Previews: PreviewProvider {
 public extension Date {
     var toYMDFormat: String {
         let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        return dateFormatter.string(from: self)
+    }
+    var toString: String {
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSZZZZZ"
         return dateFormatter.string(from: self)
     }

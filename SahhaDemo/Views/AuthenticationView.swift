@@ -42,6 +42,7 @@ struct AuthenticationView: View {
                             print(error)
                         } else if success {
                             print("You are now authenticated")
+                            print(Sahha.profileToken ?? "")
                         }
                     }
                 } label: {

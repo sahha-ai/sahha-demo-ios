@@ -48,7 +48,7 @@ struct ContentView: View {
                         Button {
                             Sahha.enableSensors { error, status in
                                 sensorStatus = status
-                                print("Sahha | Sleep sensor status: ", sensorStatus.description)
+                                print("Sahha | Sensor status:", sensorStatus.description)
                             }
                         } label: {
                             HStack {
@@ -67,6 +67,15 @@ struct ContentView: View {
                                 Spacer()
                             }
                         }
+                        Button {
+                            //Sahha.testData()
+                        } label: {
+                            HStack {
+                                Spacer()
+                                Text("Test Data")
+                                Spacer()
+                            }
+                        }
                     }
                 }
                 Section(header: Text("DATA")) {
@@ -76,16 +85,6 @@ struct ContentView: View {
                         HStack {
                             Image(systemName: "brain.head.profile")
                             Text("Analysis")
-                        }
-                    }
-                }
-                Section(header: Text("INSIGHTS")) {
-                    NavigationLink {
-                        InsightView()
-                    } label: {
-                        HStack {
-                            Image(systemName: "chart.xyaxis.line")
-                            Text("Insights")
                         }
                     }
                 }
@@ -128,7 +127,7 @@ import WebKit
 struct WebView: UIViewRepresentable {
     // 1
     let url: URL
-    
+    var profileToken: String?
     
     // 2
     func makeUIView(context: Context) -> WKWebView {
@@ -139,7 +138,10 @@ struct WebView: UIViewRepresentable {
     // 3
     func updateUIView(_ webView: WKWebView, context: Context) {
         
-        let request = URLRequest(url: url)
+        var request = URLRequest(url: url)
+        if let token = profileToken {
+            request.setValue(token, forHTTPHeaderField: "AUTH")
+        }
         webView.load(request)
     }
 }

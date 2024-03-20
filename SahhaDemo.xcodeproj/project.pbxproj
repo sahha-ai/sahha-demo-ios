@@ -9,9 +9,6 @@
 /* Begin PBXBuildFile section */
 		343BE21B27D042690064C9F2 /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343BE21A27D042690064C9F2 /* AuthenticationView.swift */; };
 		343BE21D27D076760064C9F2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343BE21C27D076760064C9F2 /* Extensions.swift */; };
-		3443FBA22AD3B3EE00E1EDC6 /* InsightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3443FBA12AD3B3EE00E1EDC6 /* InsightView.swift */; };
-		3491B89E27D2EBB700EA1130 /* SleepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491B89D27D2EBB700EA1130 /* SleepView.swift */; };
-		3491B8A027D2EBC400EA1130 /* PedometerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491B89F27D2EBC400EA1130 /* PedometerView.swift */; };
 		3491B8A227D2FD3D00EA1130 /* AnalyzationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491B8A127D2FD3D00EA1130 /* AnalyzationView.swift */; };
 		349E73152A248469001601D2 /* Sahha in Frameworks */ = {isa = PBXBuildFile; productRef = 349E73142A248469001601D2 /* Sahha */; };
 		34BF335727B6159500350785 /* SahhaDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BF335627B6159500350785 /* SahhaDemoApp.swift */; };
@@ -27,10 +24,7 @@
 		343551E02A9C6418005BF0EA /* sahha-swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "sahha-swift"; path = "../sahha-swift"; sourceTree = "<group>"; };
 		343BE21A27D042690064C9F2 /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
 		343BE21C27D076760064C9F2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		3443FBA12AD3B3EE00E1EDC6 /* InsightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightView.swift; sourceTree = "<group>"; };
 		346FA73327DC542000383DDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		3491B89D27D2EBB700EA1130 /* SleepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepView.swift; sourceTree = "<group>"; };
-		3491B89F27D2EBC400EA1130 /* PedometerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PedometerView.swift; sourceTree = "<group>"; };
 		3491B8A127D2FD3D00EA1130 /* AnalyzationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzationView.swift; sourceTree = "<group>"; };
 		34BF335327B6159500350785 /* Sahha Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sahha Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		34BF335627B6159500350785 /* SahhaDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SahhaDemoApp.swift; sourceTree = "<group>"; };
@@ -68,11 +62,8 @@
 			isa = PBXGroup;
 			children = (
 				343BE21A27D042690064C9F2 /* AuthenticationView.swift */,
-				3491B89D27D2EBB700EA1130 /* SleepView.swift */,
-				3491B89F27D2EBC400EA1130 /* PedometerView.swift */,
 				3491B8A127D2FD3D00EA1130 /* AnalyzationView.swift */,
 				34C77FAB27D817F200454BB6 /* DemographicView.swift */,
-				3443FBA12AD3B3EE00E1EDC6 /* InsightView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -213,14 +204,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3443FBA22AD3B3EE00E1EDC6 /* InsightView.swift in Sources */,
 				34C77FAC27D817F200454BB6 /* DemographicView.swift in Sources */,
 				34BF335927B6159500350785 /* ContentView.swift in Sources */,
 				34BF335727B6159500350785 /* SahhaDemoApp.swift in Sources */,
 				343BE21B27D042690064C9F2 /* AuthenticationView.swift in Sources */,
-				3491B89E27D2EBB700EA1130 /* SleepView.swift in Sources */,
 				3491B8A227D2FD3D00EA1130 /* AnalyzationView.swift in Sources */,
-				3491B8A027D2EBC400EA1130 /* PedometerView.swift in Sources */,
 				343BE21D27D076760064C9F2 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
