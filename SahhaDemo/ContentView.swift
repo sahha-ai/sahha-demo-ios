@@ -87,6 +87,17 @@ struct ContentView: View {
                             Text("Analysis")
                         }
                     }
+                    NavigationLink {
+                        WebView(url: URL(string: "https://webview.sahha.ai/app")!, profileToken: Sahha.profileToken)
+                            .ignoresSafeArea()
+                            .navigationTitle("Insights")
+                            .navigationBarTitleDisplayMode(.inline)
+                    } label: {
+                        HStack {
+                            Image(systemName: "wand.and.stars")
+                            Text("Insights")
+                        }
+                    }
                 }
                 Section(header: Text("Surveys")) {
                     NavigationLink("TypeForm") {
