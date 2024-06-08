@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "34BF335227B6159500350785"
                BuildableName = "Sahha Demo.app"
-               BlueprintName = "SahhaDemo"
-               ReferencedContainer = "container:SahhaDemo.xcodeproj">
+               BlueprintName = "cyclingai"
+               ReferencedContainer = "container:cyclingai.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -46,8 +46,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "34BF335227B6159500350785"
             BuildableName = "Sahha Demo.app"
-            BlueprintName = "SahhaDemo"
-            ReferencedContainer = "container:SahhaDemo.xcodeproj">
+            BlueprintName = "cyclingai"
+            ReferencedContainer = "container:cyclingai.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -63,8 +63,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "34BF335227B6159500350785"
             BuildableName = "Sahha Demo.app"
-            BlueprintName = "SahhaDemo"
-            ReferencedContainer = "container:SahhaDemo.xcodeproj">
+            BlueprintName = "cyclingai"
+            ReferencedContainer = "container:cyclingai.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

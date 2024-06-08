@@ -1,0 +1,15 @@
+{
+  "originHash" : "b9ae30cbd3a9b60bbebee05964e2d370cbc28e8621e7cece95e16ba9351ec184",
+  "pins" : [
+    {
+      "identity" : "sahha-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sahha-ai/sahha-swift",
+      "state" : {
+        "revision" : "3acbdd2755a08ca5ae539311880899a3ed77e80f",
+        "version" : "0.4.2"
+      }
+    }
+  ],
+  "version" : 3
+}

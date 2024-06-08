@@ -11,7 +11,7 @@
 		343BE21D27D076760064C9F2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343BE21C27D076760064C9F2 /* Extensions.swift */; };
 		3491B8A227D2FD3D00EA1130 /* AnalyzationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491B8A127D2FD3D00EA1130 /* AnalyzationView.swift */; };
 		349E73152A248469001601D2 /* Sahha in Frameworks */ = {isa = PBXBuildFile; productRef = 349E73142A248469001601D2 /* Sahha */; };
-		34BF335727B6159500350785 /* SahhaDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BF335627B6159500350785 /* SahhaDemoApp.swift */; };
+		34BF335727B6159500350785 /* cyclingaiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BF335627B6159500350785 /* cyclingaiApp.swift */; };
 		34BF335927B6159500350785 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BF335827B6159500350785 /* ContentView.swift */; };
 		34BF335B27B6159900350785 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34BF335A27B6159900350785 /* Assets.xcassets */; };
 		34BF335E27B6159900350785 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34BF335D27B6159900350785 /* Preview Assets.xcassets */; };
@@ -26,12 +26,12 @@
 		343BE21C27D076760064C9F2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		346FA73327DC542000383DDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		3491B8A127D2FD3D00EA1130 /* AnalyzationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzationView.swift; sourceTree = "<group>"; };
-		34BF335327B6159500350785 /* Sahha Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sahha Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		34BF335627B6159500350785 /* SahhaDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SahhaDemoApp.swift; sourceTree = "<group>"; };
+		34BF335327B6159500350785 /* cycling.ai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cycling.ai.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		34BF335627B6159500350785 /* cyclingaiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cyclingaiApp.swift; sourceTree = "<group>"; };
 		34BF335827B6159500350785 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		34BF335A27B6159900350785 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		34BF335D27B6159900350785 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		34BF336827B7321900350785 /* SahhaDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SahhaDemo.entitlements; sourceTree = "<group>"; };
+		34BF336827B7321900350785 /* cyclingai.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = cyclingai.entitlements; sourceTree = "<group>"; };
 		34BF336927B7321A00350785 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		34C77FAB27D817F200454BB6 /* DemographicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemographicView.swift; sourceTree = "<group>"; };
 		34C77FAE27D8191400454BB6 /* country_codes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = country_codes.json; sourceTree = "<group>"; };
@@ -72,7 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				343551DF2A9C6418005BF0EA /* Packages */,
-				34BF335527B6159500350785 /* SahhaDemo */,
+				34BF335527B6159500350785 /* cyclingai */,
 				34BF335427B6159500350785 /* Products */,
 				34BF336527B61B9100350785 /* Frameworks */,
 			);
@@ -81,25 +81,25 @@
 		34BF335427B6159500350785 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				34BF335327B6159500350785 /* Sahha Demo.app */,
+				34BF335327B6159500350785 /* cycling.ai.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		34BF335527B6159500350785 /* SahhaDemo */ = {
+		34BF335527B6159500350785 /* cyclingai */ = {
 			isa = PBXGroup;
 			children = (
 				346FA73327DC542000383DDD /* Info.plist */,
 				34C77FAD27D818F600454BB6 /* Resources */,
 				343BE21927D042460064C9F2 /* Views */,
-				34BF336827B7321900350785 /* SahhaDemo.entitlements */,
-				34BF335627B6159500350785 /* SahhaDemoApp.swift */,
+				34BF336827B7321900350785 /* cyclingai.entitlements */,
+				34BF335627B6159500350785 /* cyclingaiApp.swift */,
 				34BF335827B6159500350785 /* ContentView.swift */,
 				34BF335A27B6159900350785 /* Assets.xcassets */,
 				34BF335C27B6159900350785 /* Preview Content */,
 				343BE21C27D076760064C9F2 /* Extensions.swift */,
 			);
-			path = SahhaDemo;
+			path = cyclingai;
 			sourceTree = "<group>";
 		};
 		34BF335C27B6159900350785 /* Preview Content */ = {
@@ -129,9 +129,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		34BF335227B6159500350785 /* SahhaDemo */ = {
+		34BF335227B6159500350785 /* cyclingai */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 34BF336127B6159900350785 /* Build configuration list for PBXNativeTarget "SahhaDemo" */;
+			buildConfigurationList = 34BF336127B6159900350785 /* Build configuration list for PBXNativeTarget "cyclingai" */;
 			buildPhases = (
 				34BF334F27B6159500350785 /* Sources */,
 				34BF335027B6159500350785 /* Frameworks */,
@@ -141,12 +141,12 @@
 			);
 			dependencies = (
 			);
-			name = SahhaDemo;
+			name = cyclingai;
 			packageProductDependencies = (
 				349E73142A248469001601D2 /* Sahha */,
 			);
 			productName = SahhaExample;
-			productReference = 34BF335327B6159500350785 /* Sahha Demo.app */;
+			productReference = 34BF335327B6159500350785 /* cycling.ai.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -165,7 +165,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 34BF334E27B6159500350785 /* Build configuration list for PBXProject "SahhaDemo" */;
+			buildConfigurationList = 34BF334E27B6159500350785 /* Build configuration list for PBXProject "cyclingai" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -181,7 +181,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				34BF335227B6159500350785 /* SahhaDemo */,
+				34BF335227B6159500350785 /* cyclingai */,
 			);
 		};
 /* End PBXProject section */
@@ -206,7 +206,7 @@
 			files = (
 				34C77FAC27D817F200454BB6 /* DemographicView.swift in Sources */,
 				34BF335927B6159500350785 /* ContentView.swift in Sources */,
-				34BF335727B6159500350785 /* SahhaDemoApp.swift in Sources */,
+				34BF335727B6159500350785 /* cyclingaiApp.swift in Sources */,
 				343BE21B27D042690064C9F2 /* AuthenticationView.swift in Sources */,
 				3491B8A227D2FD3D00EA1130 /* AnalyzationView.swift in Sources */,
 				343BE21D27D076760064C9F2 /* Extensions.swift in Sources */,
@@ -337,15 +337,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = SahhaDemo/SahhaDemo.entitlements;
+				CODE_SIGN_ENTITLEMENTS = cyclingai/cyclingai.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"SahhaDemo/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"cyclingai/Preview Content\"";
 				DEVELOPMENT_TEAM = DFT926V374;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = SahhaDemo/Info.plist;
-				INFOPLIST_KEY_NSHealthShareUsageDescription = "Sahha Demo would like access to your health activity for analysis.";
+				INFOPLIST_FILE = cyclingai/Info.plist;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "cycling.ai would like access to your health activity for analysis.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -357,8 +357,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = demo.sahha.ios;
-				PRODUCT_NAME = "Sahha Demo";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.allstars101-sudo.cyclingai";
+				PRODUCT_NAME = cycling.ai;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -370,15 +370,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = SahhaDemo/SahhaDemo.entitlements;
+				CODE_SIGN_ENTITLEMENTS = cyclingai/cyclingai.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"SahhaDemo/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"cyclingai/Preview Content\"";
 				DEVELOPMENT_TEAM = DFT926V374;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = SahhaDemo/Info.plist;
-				INFOPLIST_KEY_NSHealthShareUsageDescription = "Sahha Demo would like access to your health activity for analysis.";
+				INFOPLIST_FILE = cyclingai/Info.plist;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "cycling.ai would like access to your health activity for analysis.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -390,8 +390,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = demo.sahha.ios;
-				PRODUCT_NAME = "Sahha Demo";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.allstars101-sudo.cyclingai";
+				PRODUCT_NAME = cycling.ai;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -401,7 +401,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		34BF334E27B6159500350785 /* Build configuration list for PBXProject "SahhaDemo" */ = {
+		34BF334E27B6159500350785 /* Build configuration list for PBXProject "cyclingai" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				34BF335F27B6159900350785 /* Debug */,
@@ -410,7 +410,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		34BF336127B6159900350785 /* Build configuration list for PBXNativeTarget "SahhaDemo" */ = {
+		34BF336127B6159900350785 /* Build configuration list for PBXNativeTarget "cyclingai" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				34BF336227B6159900350785 /* Debug */,
