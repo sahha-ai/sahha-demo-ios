@@ -3,14 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		343BE21B27D042690064C9F2 /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343BE21A27D042690064C9F2 /* AuthenticationView.swift */; };
 		343BE21D27D076760064C9F2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343BE21C27D076760064C9F2 /* Extensions.swift */; };
-		3491B8A227D2FD3D00EA1130 /* AnalyzationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491B8A127D2FD3D00EA1130 /* AnalyzationView.swift */; };
-		349E73152A248469001601D2 /* Sahha in Frameworks */ = {isa = PBXBuildFile; productRef = 349E73142A248469001601D2 /* Sahha */; };
+		3491B8A227D2FD3D00EA1130 /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491B8A127D2FD3D00EA1130 /* ScoreView.swift */; };
 		34BF335727B6159500350785 /* SahhaDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BF335627B6159500350785 /* SahhaDemoApp.swift */; };
 		34BF335927B6159500350785 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BF335827B6159500350785 /* ContentView.swift */; };
 		34BF335B27B6159900350785 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34BF335A27B6159900350785 /* Assets.xcassets */; };
@@ -18,6 +17,7 @@
 		34BF336A27B7321A00350785 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34BF336927B7321A00350785 /* HealthKit.framework */; };
 		34C77FAC27D817F200454BB6 /* DemographicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C77FAB27D817F200454BB6 /* DemographicView.swift */; };
 		34C77FAF27D8191400454BB6 /* country_codes.json in Resources */ = {isa = PBXBuildFile; fileRef = 34C77FAE27D8191400454BB6 /* country_codes.json */; };
+		34DD76C82C8AE19E00DAA5E6 /* Sahha in Frameworks */ = {isa = PBXBuildFile; productRef = 34DD76C72C8AE19E00DAA5E6 /* Sahha */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +25,7 @@
 		343BE21A27D042690064C9F2 /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
 		343BE21C27D076760064C9F2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		346FA73327DC542000383DDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		3491B8A127D2FD3D00EA1130 /* AnalyzationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzationView.swift; sourceTree = "<group>"; };
+		3491B8A127D2FD3D00EA1130 /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
 		34BF335327B6159500350785 /* Sahha Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sahha Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		34BF335627B6159500350785 /* SahhaDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SahhaDemoApp.swift; sourceTree = "<group>"; };
 		34BF335827B6159500350785 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -42,7 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				349E73152A248469001601D2 /* Sahha in Frameworks */,
+				34DD76C82C8AE19E00DAA5E6 /* Sahha in Frameworks */,
 				34BF336A27B7321A00350785 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -62,7 +62,7 @@
 			isa = PBXGroup;
 			children = (
 				343BE21A27D042690064C9F2 /* AuthenticationView.swift */,
-				3491B8A127D2FD3D00EA1130 /* AnalyzationView.swift */,
+				3491B8A127D2FD3D00EA1130 /* ScoreView.swift */,
 				34C77FAB27D817F200454BB6 /* DemographicView.swift */,
 			);
 			path = Views;
@@ -143,7 +143,7 @@
 			);
 			name = SahhaDemo;
 			packageProductDependencies = (
-				349E73142A248469001601D2 /* Sahha */,
+				34DD76C72C8AE19E00DAA5E6 /* Sahha */,
 			);
 			productName = SahhaExample;
 			productReference = 34BF335327B6159500350785 /* Sahha Demo.app */;
@@ -175,7 +175,7 @@
 			);
 			mainGroup = 34BF334A27B6159500350785;
 			packageReferences = (
-				349E73132A248469001601D2 /* XCRemoteSwiftPackageReference "sahha-swift" */,
+				34DD76C02C89C72F00DAA5E6 /* XCLocalSwiftPackageReference "../sahha-swift" */,
 			);
 			productRefGroup = 34BF335427B6159500350785 /* Products */;
 			projectDirPath = "";
@@ -208,7 +208,7 @@
 				34BF335927B6159500350785 /* ContentView.swift in Sources */,
 				34BF335727B6159500350785 /* SahhaDemoApp.swift in Sources */,
 				343BE21B27D042690064C9F2 /* AuthenticationView.swift in Sources */,
-				3491B8A227D2FD3D00EA1130 /* AnalyzationView.swift in Sources */,
+				3491B8A227D2FD3D00EA1130 /* ScoreView.swift in Sources */,
 				343BE21D27D076760064C9F2 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -421,21 +421,17 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		349E73132A248469001601D2 /* XCRemoteSwiftPackageReference "sahha-swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/sahha-ai/sahha-swift";
-			requirement = {
-				kind = exactVersion;
-				version = 0.4.3;
-			};
+/* Begin XCLocalSwiftPackageReference section */
+		34DD76C02C89C72F00DAA5E6 /* XCLocalSwiftPackageReference "../sahha-swift" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = "../sahha-swift";
 		};
-/* End XCRemoteSwiftPackageReference section */
+/* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		349E73142A248469001601D2 /* Sahha */ = {
+		34DD76C72C8AE19E00DAA5E6 /* Sahha */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 349E73132A248469001601D2 /* XCRemoteSwiftPackageReference "sahha-swift" */;
+			package = 34DD76C02C89C72F00DAA5E6 /* XCLocalSwiftPackageReference "../sahha-swift" */;
 			productName = Sahha;
 		};
 /* End XCSwiftPackageProductDependency section */

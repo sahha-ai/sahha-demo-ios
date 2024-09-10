@@ -80,11 +80,11 @@ struct ContentView: View {
                 }
                 Section(header: Text("DATA")) {
                     NavigationLink {
-                        AnalysisView()
+                        ScoreView()
                     } label: {
                         HStack {
                             Image(systemName: "brain.head.profile")
-                            Text("Analysis")
+                            Text("Scores")
                         }
                     }
                     NavigationLink {

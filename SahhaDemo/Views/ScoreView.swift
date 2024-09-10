@@ -3,38 +3,38 @@
 import SwiftUI
 import Sahha
 
-struct AnalysisView: View {
+struct ScoreView: View {
     
-    @State var analysisString: String = ""
+    @State var scoreString: String = ""
     @State var isAnalyzeButtonEnabled: Bool = true
     
-    func getAnalysisForToday() {
-        analysisString = "Waiting..."
+    func getScoresForToday() {
+        scoreString = "Waiting..."
         isAnalyzeButtonEnabled = false
-        Sahha.analyze() { error, json in
+        Sahha.getScores([.activity, .sleep, .readiness, .wellbeing, .mental_wellbeing]) { error, json in
             isAnalyzeButtonEnabled = true
             if let error = error {
                 print(error)
             }
             else if let json = json {
                 print(json)
-                analysisString = json
+                scoreString = json
             }
         }
     }
     
-    func getAnalysisForThisWeek() {
-        analysisString = "Waiting..."
+    func getScoresForThisWeek() {
+        scoreString = "Waiting..."
         let today = Date()
         let sevenDaysAgo = Calendar.current.date(byAdding: .day, value: -7, to: today) ?? Date()
-        Sahha.analyze(dates: (sevenDaysAgo, today)) { error, json in
+        Sahha.getScores([.activity, .sleep, .readiness, .wellbeing, .mental_wellbeing], dates: (sevenDaysAgo, today)) { error, json in
             isAnalyzeButtonEnabled = true
             if let error = error {
                 print(error)
             }
             else if let json = json {
                 print(json)
-                analysisString = json
+                scoreString = json
             }
         }
     }
@@ -50,41 +50,41 @@ struct AnalysisView: View {
                 }.font(.title)
             }
             Section {
-                Text("A new analysis will be available every 24 hours. If an analysis is empty {}, it means more sensor data must be collected. Try again in 24 hours. ").font(.caption).multilineTextAlignment(.center)
+                Text("A new score will be available every 24 hours. If a score is empty {}, it means more sensor data must be collected. Try again in 24 hours. ").font(.caption).multilineTextAlignment(.center)
             }
             if isAnalyzeButtonEnabled {
                 Section {
                     Button {
-                        getAnalysisForToday()
+                        getScoresForToday()
                     } label: {
                         HStack {
                             Spacer()
-                            Text("Analyze Previous 24 Hours")
+                            Text("Check Previous 24 Hours")
                             Spacer()
                         }
                     }
                 }
                 Section {
                     Button {
-                        getAnalysisForThisWeek()
+                        getScoresForThisWeek()
                     } label: {
                         HStack {
                             Spacer()
-                            Text("Analyze Previous Week")
+                            Text("Check Previous Week")
                             Spacer()
                         }
                     }
                 }
             }
-            if analysisString.isEmpty == false {
+            if scoreString.isEmpty == false {
                 Section {
                     ScrollView(.horizontal) {
-                        Text(analysisString).font(.caption)
+                        Text(scoreString).font(.caption)
                     }
                 } header : {
                     HStack {
                         Spacer()
-                        Text("Analysis")
+                        Text("Score")
                         Spacer()
                     }
                 }
@@ -122,8 +122,8 @@ struct AnalysisView: View {
     }
 }
 
-struct AnalyzationView_Previews: PreviewProvider {
+struct ScoreView_Previews: PreviewProvider {
     static var previews: some View {
-        AnalysisView()
+        ScoreView()
     }
 }
