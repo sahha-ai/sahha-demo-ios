@@ -18,6 +18,7 @@
 		34C77FAC27D817F200454BB6 /* DemographicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C77FAB27D817F200454BB6 /* DemographicView.swift */; };
 		34C77FAF27D8191400454BB6 /* country_codes.json in Resources */ = {isa = PBXBuildFile; fileRef = 34C77FAE27D8191400454BB6 /* country_codes.json */; };
 		34DD76C82C8AE19E00DAA5E6 /* Sahha in Frameworks */ = {isa = PBXBuildFile; productRef = 34DD76C72C8AE19E00DAA5E6 /* Sahha */; };
+		39C206242CF66B0A00AA060D /* BiomarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C206232CF66B0500AA060D /* BiomarkerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		34BF336927B7321A00350785 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		34C77FAB27D817F200454BB6 /* DemographicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemographicView.swift; sourceTree = "<group>"; };
 		34C77FAE27D8191400454BB6 /* country_codes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = country_codes.json; sourceTree = "<group>"; };
+		39C206232CF66B0500AA060D /* BiomarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiomarkerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 		343BE21927D042460064C9F2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				39C206232CF66B0500AA060D /* BiomarkerView.swift */,
 				343BE21A27D042690064C9F2 /* AuthenticationView.swift */,
 				3491B8A127D2FD3D00EA1130 /* ScoreView.swift */,
 				34C77FAB27D817F200454BB6 /* DemographicView.swift */,
@@ -204,6 +207,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39C206242CF66B0A00AA060D /* BiomarkerView.swift in Sources */,
 				34C77FAC27D817F200454BB6 /* DemographicView.swift in Sources */,
 				34BF335927B6159500350785 /* ContentView.swift in Sources */,
 				34BF335727B6159500350785 /* SahhaDemoApp.swift in Sources */,

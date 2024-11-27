@@ -1,40 +1,53 @@
-// Copyright © 2022 Sahha. All rights reserved.
+//
+//  BiomarkerView.swift
+//  SahhaDemo
+//
+//  Created by Hee-Min Chae on 27/11/2024.
+//  Copyright © 2024 Sahha. All rights reserved.
+//
 
 import SwiftUI
 import Sahha
 
-struct ScoreView: View {
+struct BiomarkerView: View {
     
-    @State var scoreString: String = ""
+    @State var biomarkerString: String = ""
     @State var isAnalyzeButtonEnabled: Bool = true
     
-    func getScoresForToday() {
-        scoreString = "Waiting..."
+    func getBiomarkersForToday() {
+        biomarkerString = "Waiting..."
         isAnalyzeButtonEnabled = false
-        Sahha.getScores([.activity, .sleep, .readiness, .wellbeing, .mental_wellbeing]) { error, json in
+        Sahha.getBiomarkers(
+            categories: [.activity, .sleep, .vitals],
+            types: [.steps, .sleep_duration, .heart_rate_sleep, .heart_rate_resting]
+        ) { error, json in
             isAnalyzeButtonEnabled = true
             if let error = error {
                 print(error)
             }
             else if let json = json {
                 print(json)
-                scoreString = json
+                biomarkerString = json
             }
         }
     }
     
-    func getScoresForThisWeek() {
-        scoreString = "Waiting..."
+    func getBiomarkersForThisWeek() {
+        biomarkerString = "Waiting..."
         let today = Date()
         let sevenDaysAgo = Calendar.current.date(byAdding: .day, value: -7, to: today) ?? Date()
-        Sahha.getScores([.activity, .sleep, .readiness, .wellbeing, .mental_wellbeing], dates: (sevenDaysAgo, today)) { error, json in
+        Sahha.getBiomarkers(
+            categories: [.activity, .sleep, .vitals],
+            types: [.steps, .sleep_duration, .heart_rate_sleep, .heart_rate_resting],
+            dates: (sevenDaysAgo, today)
+        ) { error, json in
             isAnalyzeButtonEnabled = true
             if let error = error {
                 print(error)
             }
             else if let json = json {
                 print(json)
-                scoreString = json
+                biomarkerString = json
             }
         }
     }
@@ -44,8 +57,8 @@ struct ScoreView: View {
             Section {
                 HStack {
                     Spacer()
-                    Image(systemName: "brain.head.profile")
-                    Text("Scores")
+                    Image(systemName: "doc.text.below.ecg")
+                    Text("Biomarkers")
                     Spacer()
                 }.font(.title)
             }
@@ -55,7 +68,7 @@ struct ScoreView: View {
             if isAnalyzeButtonEnabled {
                 Section {
                     Button {
-                        getScoresForToday()
+                        getBiomarkersForToday()
                     } label: {
                         HStack {
                             Spacer()
@@ -66,7 +79,7 @@ struct ScoreView: View {
                 }
                 Section {
                     Button {
-                        getScoresForThisWeek()
+                        getBiomarkersForThisWeek()
                     } label: {
                         HStack {
                             Spacer()
@@ -76,15 +89,15 @@ struct ScoreView: View {
                     }
                 }
             }
-            if scoreString.isEmpty == false {
+            if biomarkerString.isEmpty == false {
                 Section {
                     ScrollView(.horizontal) {
-                        Text(scoreString).font(.caption)
+                        Text(biomarkerString).font(.caption)
                     }
                 } header : {
                     HStack {
                         Spacer()
-                        Text("Score")
+                        Text("Biomarker")
                         Spacer()
                     }
                 }
@@ -122,8 +135,8 @@ struct ScoreView: View {
     }
 }
 
-struct ScoreView_Previews: PreviewProvider {
+struct BiomarkerView_Previews: PreviewProvider {
     static var previews: some View {
-        ScoreView()
+        BiomarkerView()
     }
 }

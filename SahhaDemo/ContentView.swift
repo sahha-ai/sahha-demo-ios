@@ -88,6 +88,14 @@ struct ContentView: View {
                         }
                     }
                     NavigationLink {
+                        BiomarkerView()
+                    } label: {
+                        HStack {
+                            Image(systemName: "doc.text.below.ecg")
+                            Text("Biomarkers")
+                        }
+                    }
+                    NavigationLink {
                         WebView(url: URL(string: "https://webview.sahha.ai/app")!, profileToken: Sahha.profileToken)
                             .ignoresSafeArea()
                             .navigationTitle("Insights")
