@@ -116,19 +116,6 @@ struct BiomarkerView: View {
                     }
                 }
             }
-            /*
-            ForEach(biomarkers, id: \.self) { biomarker in
-                Section(header: Text(biomarker.startDateTime)) {
-                    Text(biomarker.category)
-                    Text(biomarker.type)
-                    Text(biomarker.value)
-                    Text(biomarker.valueType)
-                    Text(biomarker.unit)
-                    Text(biomarker.aggregation)
-                    Text(biomarker.periodicity)
-                    Text(biomarker.endDateTime)
-                }
-            }*/
             ForEach(biomarkers, id: \.startDateTime) { biomarker in
                 Section {
                     VStack(alignment: .leading) {

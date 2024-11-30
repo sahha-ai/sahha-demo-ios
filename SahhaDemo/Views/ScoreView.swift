@@ -3,22 +3,56 @@
 import SwiftUI
 import Sahha
 
+struct ScoreResponse: Codable {
+    var id: String = UUID().uuidString
+    var type: String = ""
+    var state: String = ""
+    var score: Double = 0.0
+    var factors: [ScoreFactorResponse] = []
+    var dataSources: [String] = []
+    var scoreDateTime: String = ""
+    var createdAtUtc: String = ""
+}
+
+struct ScoreFactorResponse: Codable {
+    var id: String = UUID().uuidString
+    var name: String? = ""
+    var value: Double? = 0.0
+    var goal: Double? = 0.0
+    var score: Double? = 0.0
+    var state: String? = ""
+    var unit: String? = ""
+}
+
 struct ScoreView: View {
     
     @State var scoreString: String = ""
     @State var isAnalyzeButtonEnabled: Bool = true
+    @State var scores: [ScoreResponse] = []
+    
+    func setScores(_ jsonString: String) {
+        do {
+            let jsonData = Data(jsonString.utf8)
+            let jsonArray = try JSONDecoder().decode([ScoreResponse].self, from: jsonData)
+            scores = jsonArray
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
     
     func getScoresForToday() {
         scoreString = "Waiting..."
         isAnalyzeButtonEnabled = false
-        Sahha.getScores([.activity, .sleep, .readiness, .wellbeing, .mental_wellbeing]) { error, json in
+        Sahha.getScores([.activity]) { error, json in
+            scoreString = ""
             isAnalyzeButtonEnabled = true
             if let error = error {
                 print(error)
             }
             else if let json = json {
                 print(json)
-                scoreString = json
+                //scoreString = json
+                setScores(json)
             }
         }
     }
@@ -27,14 +61,16 @@ struct ScoreView: View {
         scoreString = "Waiting..."
         let today = Date()
         let sevenDaysAgo = Calendar.current.date(byAdding: .day, value: -7, to: today) ?? Date()
-        Sahha.getScores([.activity, .sleep, .readiness, .wellbeing, .mental_wellbeing], dates: (sevenDaysAgo, today)) { error, json in
+        Sahha.getScores([.activity], dates: (sevenDaysAgo, today)) { error, json in
+            scoreString = ""
             isAnalyzeButtonEnabled = true
             if let error = error {
                 print(error)
             }
             else if let json = json {
                 print(json)
-                scoreString = json
+                //scoreString = json
+                setScores(json)
             }
         }
     }
@@ -76,8 +112,30 @@ struct ScoreView: View {
                     }
                 }
             }
-            if scoreString.isEmpty == false {
+            ForEach(scores, id: \.id) { score in
                 Section {
+                    VStack(alignment: .leading) {
+                        Text("scoreDateTime")
+                        Text(score.scoreDateTime)
+                    }
+                    VStack(alignment: .leading) {
+                        Text("type")
+                        Text(score.type)
+                    }
+                    VStack(alignment: .leading) {
+                        Text("state")
+                        Text(score.state)
+                    }
+                    VStack(alignment: .leading) {
+                        Text("score")
+                        Text("\(score.score)")
+                    }
+                } header: {
+                    Text(UUID().uuidString)
+                }
+            }
+            if scoreString.isEmpty == false {
+                                Section {
                     ScrollView(.horizontal) {
                         Text(scoreString).font(.caption)
                     }
@@ -88,7 +146,7 @@ struct ScoreView: View {
                         Spacer()
                     }
                 }
-            } else {
+            } else if scores.isEmpty {
                 Section {
                     ScrollView(.horizontal) {
                         Text("""
@@ -108,7 +166,7 @@ struct ScoreView: View {
             }
         ]
     }
-    """).font(.caption)
+    """)
                     }
                 } header : {
                     HStack {
@@ -118,7 +176,7 @@ struct ScoreView: View {
                     }
                 }
             }
-        }
+        }.font(.caption)
     }
 }
 
