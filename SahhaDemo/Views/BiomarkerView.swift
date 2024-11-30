@@ -9,25 +9,50 @@
 import SwiftUI
 import Sahha
 
+struct BiomarkerResponse: Codable {
+    var category: String = ""
+    var type: String = ""
+    var unit: String = ""
+    var value: String = ""
+    var valueType: String = ""
+    var aggregation: String = ""
+    var periodicity: String = ""
+    var startDateTime: String = ""
+    var endDateTime: String = ""
+}
+
 struct BiomarkerView: View {
     
     @State var biomarkerString: String = ""
     @State var isAnalyzeButtonEnabled: Bool = true
+    @State var biomarkers: [BiomarkerResponse] = []
+    
+    func setBiomarkers(_ jsonString: String) {
+        do {
+            let jsonData = Data(jsonString.utf8)
+            let jsonArray = try JSONDecoder().decode([BiomarkerResponse].self, from: jsonData)
+            biomarkers = jsonArray
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
     
     func getBiomarkersForToday() {
         biomarkerString = "Waiting..."
         isAnalyzeButtonEnabled = false
         Sahha.getBiomarkers(
-            categories: [.activity, .sleep, .vitals],
-            types: [.steps, .sleep_duration, .heart_rate_sleep, .heart_rate_resting]
+            categories: [.activity],
+            types: [.steps]
         ) { error, json in
+            biomarkerString = ""
             isAnalyzeButtonEnabled = true
             if let error = error {
                 print(error)
             }
             else if let json = json {
                 print(json)
-                biomarkerString = json
+                //biomarkerString = json
+                setBiomarkers(json)
             }
         }
     }
@@ -41,13 +66,15 @@ struct BiomarkerView: View {
             types: [.steps, .sleep_duration, .heart_rate_sleep, .heart_rate_resting],
             dates: (sevenDaysAgo, today)
         ) { error, json in
+            biomarkerString = ""
             isAnalyzeButtonEnabled = true
             if let error = error {
                 print(error)
             }
             else if let json = json {
                 print(json)
-                biomarkerString = json
+                //biomarkerString = json
+                setBiomarkers(json)
             }
         }
     }
@@ -89,6 +116,61 @@ struct BiomarkerView: View {
                     }
                 }
             }
+            /*
+            ForEach(biomarkers, id: \.self) { biomarker in
+                Section(header: Text(biomarker.startDateTime)) {
+                    Text(biomarker.category)
+                    Text(biomarker.type)
+                    Text(biomarker.value)
+                    Text(biomarker.valueType)
+                    Text(biomarker.unit)
+                    Text(biomarker.aggregation)
+                    Text(biomarker.periodicity)
+                    Text(biomarker.endDateTime)
+                }
+            }*/
+            ForEach(biomarkers, id: \.startDateTime) { biomarker in
+                Section {
+                    VStack(alignment: .leading) {
+                        Text("startDateTime")
+                        Text(biomarker.startDateTime)
+                    }
+                    VStack(alignment: .leading) {
+                        Text("startDateTime")
+                        Text(biomarker.endDateTime)
+                    }
+                    VStack(alignment: .leading) {
+                        Text("category")
+                        Text(biomarker.category)
+                    }
+                    VStack(alignment: .leading) {
+                        Text("type")
+                        Text(biomarker.type)
+                    }
+                    VStack(alignment: .leading) {
+                        Text("valueType")
+                        Text(biomarker.valueType)
+                    }
+                    VStack(alignment: .leading) {
+                        Text("value")
+                        Text(biomarker.value)
+                    }
+                    VStack(alignment: .leading) {
+                        Text("unit")
+                        Text(biomarker.unit)
+                    }
+                    VStack(alignment: .leading) {
+                        Text("aggregation")
+                        Text(biomarker.aggregation)
+                    }
+                    VStack(alignment: .leading) {
+                        Text("periodicity")
+                        Text(biomarker.periodicity)
+                    }
+                } header: {
+                    Text(UUID().uuidString)
+                }
+            }
             if biomarkerString.isEmpty == false {
                 Section {
                     ScrollView(.horizontal) {
@@ -101,7 +183,7 @@ struct BiomarkerView: View {
                         Spacer()
                     }
                 }
-            } else {
+            } else if biomarkers.isEmpty {
                 Section {
                     ScrollView(.horizontal) {
                         Text("""
@@ -121,8 +203,7 @@ struct BiomarkerView: View {
             }
         ]
     }
-    """).font(.caption)
-                    }
+    """)                    }
                 } header : {
                     HStack {
                         Spacer()
@@ -131,7 +212,7 @@ struct BiomarkerView: View {
                     }
                 }
             }
-        }
+        }.font(.caption)
     }
 }
 
