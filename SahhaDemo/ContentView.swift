@@ -96,6 +96,14 @@ struct ContentView: View {
                         }
                     }
                     NavigationLink {
+                        StatsView()
+                    } label: {
+                        HStack {
+                            Image(systemName: "chart.xyaxis.line")
+                            Text("Stats")
+                        }
+                    }
+                    NavigationLink {
                         WebView(url: URL(string: "https://webview.sahha.ai/app")!, profileToken: Sahha.profileToken)
                             .ignoresSafeArea()
                             .navigationTitle("Insights")
