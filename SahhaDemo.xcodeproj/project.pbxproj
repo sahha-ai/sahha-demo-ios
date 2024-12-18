@@ -19,6 +19,7 @@
 		34C77FAF27D8191400454BB6 /* country_codes.json in Resources */ = {isa = PBXBuildFile; fileRef = 34C77FAE27D8191400454BB6 /* country_codes.json */; };
 		34DD76C82C8AE19E00DAA5E6 /* Sahha in Frameworks */ = {isa = PBXBuildFile; productRef = 34DD76C72C8AE19E00DAA5E6 /* Sahha */; };
 		34F6A95E2D12546000F3BB02 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F6A95D2D12546000F3BB02 /* StatsView.swift */; };
+		34F6A9602D126CB800F3BB02 /* SamplesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F6A95F2D126CB200F3BB02 /* SamplesView.swift */; };
 		39C206242CF66B0A00AA060D /* BiomarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C206232CF66B0500AA060D /* BiomarkerView.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +39,7 @@
 		34C77FAB27D817F200454BB6 /* DemographicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemographicView.swift; sourceTree = "<group>"; };
 		34C77FAE27D8191400454BB6 /* country_codes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = country_codes.json; sourceTree = "<group>"; };
 		34F6A95D2D12546000F3BB02 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
+		34F6A95F2D126CB200F3BB02 /* SamplesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamplesView.swift; sourceTree = "<group>"; };
 		39C206232CF66B0500AA060D /* BiomarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiomarkerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -66,6 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				34F6A95D2D12546000F3BB02 /* StatsView.swift */,
+				34F6A95F2D126CB200F3BB02 /* SamplesView.swift */,
 				39C206232CF66B0500AA060D /* BiomarkerView.swift */,
 				343BE21A27D042690064C9F2 /* AuthenticationView.swift */,
 				3491B8A127D2FD3D00EA1130 /* ScoreView.swift */,
@@ -212,6 +215,7 @@
 			files = (
 				39C206242CF66B0A00AA060D /* BiomarkerView.swift in Sources */,
 				34C77FAC27D817F200454BB6 /* DemographicView.swift in Sources */,
+				34F6A9602D126CB800F3BB02 /* SamplesView.swift in Sources */,
 				34BF335927B6159500350785 /* ContentView.swift in Sources */,
 				34BF335727B6159500350785 /* SahhaDemoApp.swift in Sources */,
 				34F6A95E2D12546000F3BB02 /* StatsView.swift in Sources */,

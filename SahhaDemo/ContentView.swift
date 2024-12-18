@@ -67,15 +67,6 @@ struct ContentView: View {
                                 Spacer()
                             }
                         }
-                        Button {
-                            //Sahha.testData()
-                        } label: {
-                            HStack {
-                                Spacer()
-                                Text("Test Data")
-                                Spacer()
-                            }
-                        }
                     }
                 }
                 Section(header: Text("DATA")) {
@@ -104,6 +95,14 @@ struct ContentView: View {
                         }
                     }
                     NavigationLink {
+                        SamplesView()
+                    } label: {
+                        HStack {
+                            Image(systemName: "clock.arrow.trianglehead.2.counterclockwise.rotate.90")
+                            Text("Samples")
+                        }
+                    }
+                    NavigationLink {
                         WebView(url: URL(string: "https://webview.sahha.ai/app")!, profileToken: Sahha.profileToken)
                             .ignoresSafeArea()
                             .navigationTitle("Insights")
@@ -115,6 +114,7 @@ struct ContentView: View {
                         }
                     }
                 }
+                /*
                 Section(header: Text("Surveys")) {
                     NavigationLink("TypeForm") {
                         WebView(url: URL(string: "https://p7g2dr2gsxx.typeform.com/to/uUNXxdxn#inference_id=ABC123")!)
@@ -138,6 +138,7 @@ struct ContentView: View {
                     }
 
                 }
+                 */
             }
         }
     }

@@ -1,6 +1,6 @@
 //
 //  StatsView.swift
-//  SahhaApp
+//  SahhaDemo
 //
 //  Created by Matthew on 2024-11-20.
 //
@@ -16,7 +16,7 @@ public extension SahhaStat {
 
 struct StatsView: View {
     
-    var sensors: [SahhaSensor] = [.steps, .floors_climbed, .heart_rate, .heart_rate_variability_sdnn, .vo2_max, .oxygen_saturation, .active_energy_burned, .sleep]
+    let sensors: [SahhaSensor] = [.steps, .floors_climbed, .heart_rate, .heart_rate_variability_sdnn, .vo2_max, .oxygen_saturation, .active_energy_burned, .sleep]
     @State private var stats: [SahhaStat] = []
     @State private var selectionDate: Date = Date()
     
@@ -29,7 +29,7 @@ struct StatsView: View {
         }
     }
     
-    func displaySleepTime(_ stat: SahhaStat) -> String {
+    func displayStatTime(_ stat: SahhaStat) -> String {
         let formatter = DateComponentsFormatter()
         formatter.allowedUnits = [.hour, .minute]
         formatter.unitsStyle = .short
@@ -46,18 +46,13 @@ struct StatsView: View {
             HStack {
                 Text(stat.type)
                 Spacer()
-                switch stat.type {
-                case "sleep",
-                    "sleep_stage_unknown",
-                "sleep_stage_in_bed", "sleep_stage_light", "sleep_stage_deep", "sleep_stage_sleeping",
-                "sleep_stage_awake",
-                    "sleep_stage_rem":
-                    Text(displaySleepTime(stat))
-                default:
+                if stat.type.hasPrefix("sleep") || stat.type.hasPrefix("exercise") {
+                    Text(displayStatTime(stat))
+                } else {
                     Text("\(stat.stringValue) \(stat.unit)")
                 }
             }
-        }
+        }.font(.caption)
     }
     
     var body: some View {
