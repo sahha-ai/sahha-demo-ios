@@ -40,13 +40,13 @@ struct ContentView: View {
                         Text("Disabled").tag(2)
                         Text("Enabled").tag(3)
                     }.onAppear {
-                        Sahha.getSensorStatus([.step_count, .sleep]) { error, status in
+                        Sahha.getSensorStatus([.steps, .sleep]) { error, status in
                             sensorStatus = status
                         }
                     }
                     if sensorStatus == .pending {
                         Button {
-                            Sahha.enableSensors([.step_count, .sleep]) { error, status in
+                            Sahha.enableSensors([.steps, .sleep]) { error, status in
                                 sensorStatus = status
                                 print("Sahha | Sensor status:", sensorStatus.description)
                             }

@@ -42,7 +42,9 @@ struct BiomarkerView: View {
         isAnalyzeButtonEnabled = false
         Sahha.getBiomarkers(
             categories: [.activity],
-            types: [.steps]
+            types: [.steps],
+            startDate: .now,
+            endDate: .now
         ) { error, json in
             biomarkerString = ""
             isAnalyzeButtonEnabled = true
@@ -64,7 +66,7 @@ struct BiomarkerView: View {
         Sahha.getBiomarkers(
             categories: [.activity, .sleep, .vitals],
             types: [.steps, .sleep_duration, .heart_rate_sleep, .heart_rate_resting],
-            dates: (sevenDaysAgo, today)
+            startDate: sevenDaysAgo, endDate: today
         ) { error, json in
             biomarkerString = ""
             isAnalyzeButtonEnabled = true
