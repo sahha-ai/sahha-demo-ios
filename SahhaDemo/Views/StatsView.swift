@@ -23,7 +23,7 @@ struct StatsView: View {
     func getStats() {
         self.stats = []
         for sensor in sensors {
-            Sahha.getStats(sensor: sensor, startDate: selectionDate, endDate: selectionDate) { error, newStats in
+            Sahha.getStats(sensor: sensor, startDateTime: selectionDate, endDateTime: selectionDate) { error, newStats in
                 self.stats.append(contentsOf: newStats)
             }
         }

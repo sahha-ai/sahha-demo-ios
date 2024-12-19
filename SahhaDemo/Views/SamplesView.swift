@@ -24,7 +24,7 @@ struct SamplesView: View {
         self.samples = [:]
         let startDate = Calendar.current.startOfDay(for: selectionDate)
         for sensor in sensors {
-            Sahha.getSamples(sensor: sensor, startDate: startDate, endDate: selectionDate) { error, newSamples in
+            Sahha.getSamples(sensor: sensor, startDateTime: startDate, endDateTime: selectionDate) { error, newSamples in
                 if let error = error {
                     print(error)
                 }
@@ -49,7 +49,7 @@ struct SamplesView: View {
     
     func createSampleView(sample: SahhaSample) -> some View {
         VStack(alignment: .leading) {
-            Text(sample.startDate.toString)
+            Text(sample.startDateTime.toString)
             HStack {
                 Text(sample.type).bold()
                 Spacer()
@@ -59,7 +59,7 @@ struct SamplesView: View {
                     Text("\(sample.stringValue) \(sample.unit)").bold()
                 }
             }
-            Text(sample.endDate.toString)
+            Text(sample.endDateTime.toString)
         }.font(.caption).navigationTitle(selectionDate.toYMDFormat)
     }
     

@@ -43,7 +43,7 @@ struct ScoreView: View {
     func getScoresForToday() {
         scoreString = "Waiting..."
         isAnalyzeButtonEnabled = false
-        Sahha.getScores(types: [.activity], startDate: .now, endDate: .now) { error, json in
+        Sahha.getScores(types: [.activity], startDateTime: .now, endDateTime: .now) { error, json in
             scoreString = ""
             isAnalyzeButtonEnabled = true
             if let error = error {
@@ -61,7 +61,7 @@ struct ScoreView: View {
         scoreString = "Waiting..."
         let today = Date()
         let sevenDaysAgo = Calendar.current.date(byAdding: .day, value: -7, to: today) ?? Date()
-        Sahha.getScores(types: [.activity], startDate: sevenDaysAgo, endDate: today) { error, json in
+        Sahha.getScores(types: [.activity], startDateTime: sevenDaysAgo, endDateTime: today) { error, json in
             scoreString = ""
             isAnalyzeButtonEnabled = true
             if let error = error {
