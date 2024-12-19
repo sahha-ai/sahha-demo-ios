@@ -23,8 +23,10 @@ struct SamplesView: View {
     func getSamples() {
         self.samples = [:]
         let startDate = Calendar.current.startOfDay(for: selectionDate)
+        var endDate = Calendar.current.date(byAdding: .day, value: 1, to: selectionDate) ?? selectionDate
+        endDate = Calendar.current.startOfDay(for: endDate)
         for sensor in sensors {
-            Sahha.getSamples(sensor: sensor, startDateTime: startDate, endDateTime: selectionDate) { error, newSamples in
+            Sahha.getSamples(sensor: sensor, startDateTime: startDate, endDateTime: endDate) { error, newSamples in
                 if let error = error {
                     print(error)
                 }
