@@ -71,6 +71,17 @@ struct ContentView: View {
                 }
                 Section(header: Text("DATA")) {
                     NavigationLink {
+                        WebView(url: URL(string: "https://webview.sahha.ai/app")!, profileToken: Sahha.profileToken)
+                            .ignoresSafeArea()
+                            .navigationTitle("Insights")
+                            .navigationBarTitleDisplayMode(.inline)
+                    } label: {
+                        HStack {
+                            Image(systemName: "wand.and.stars")
+                            Text("Insights")
+                        }
+                    }
+                    NavigationLink {
                         ScoreView()
                     } label: {
                         HStack {
@@ -100,17 +111,6 @@ struct ContentView: View {
                         HStack {
                             Image(systemName: "clock.arrow.trianglehead.2.counterclockwise.rotate.90")
                             Text("Samples")
-                        }
-                    }
-                    NavigationLink {
-                        WebView(url: URL(string: "https://webview.sahha.ai/app")!, profileToken: Sahha.profileToken)
-                            .ignoresSafeArea()
-                            .navigationTitle("Insights")
-                            .navigationBarTitleDisplayMode(.inline)
-                    } label: {
-                        HStack {
-                            Image(systemName: "wand.and.stars")
-                            Text("Insights")
                         }
                     }
                 }

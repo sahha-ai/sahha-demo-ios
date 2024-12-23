@@ -25,6 +25,7 @@ struct StatsView: View {
         for sensor in sensors {
             Sahha.getStats(sensor: sensor, startDateTime: selectionDate, endDateTime: selectionDate) { error, newStats in
                 self.stats.append(contentsOf: newStats)
+                print(newStats)
             }
         }
     }
