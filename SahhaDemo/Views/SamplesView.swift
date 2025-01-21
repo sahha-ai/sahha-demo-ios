@@ -61,6 +61,8 @@ struct SamplesView: View {
                     Text("\(sample.stringValue) \(sample.unit)").bold()
                 }
             }
+            Text(sample.recordingMethod)
+            Text(sample.source)
             Text(sample.endDateTime.toString)
         }.font(.caption).navigationTitle(selectionDate.toYMDFormat)
     }
