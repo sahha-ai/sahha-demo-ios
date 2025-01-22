@@ -71,7 +71,7 @@ struct ContentView: View {
                 }
                 Section(header: Text("DATA")) {
                     NavigationLink {
-                        WebView(url: URL(string: "https://webview.sahha.ai/app")!, profileToken: Sahha.profileToken)
+                        WebView(url: URL(string: "https://sandbox.webview.sahha.ai/app")!, profileToken: Sahha.profileToken)
                             .ignoresSafeArea()
                             .navigationTitle("Insights")
                             .navigationBarTitleDisplayMode(.inline)
@@ -168,7 +168,7 @@ struct WebView: UIViewRepresentable {
         
         var request = URLRequest(url: url)
         if let token = profileToken {
-            request.setValue(token, forHTTPHeaderField: "AUTH")
+            request.setValue(token, forHTTPHeaderField: "Authorization")
         }
         webView.load(request)
     }
