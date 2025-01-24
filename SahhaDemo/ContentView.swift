@@ -113,6 +113,14 @@ struct ContentView: View {
                             Text("Samples")
                         }
                     }
+                    NavigationLink {
+                        AppEventsView()
+                    } label: {
+                        HStack {
+                            Image(systemName: "iphone.motion")
+                            Text("App Events")
+                        }
+                    }
                 }
                 /*
                 Section(header: Text("Surveys")) {
