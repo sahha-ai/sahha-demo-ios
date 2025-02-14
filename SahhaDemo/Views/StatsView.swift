@@ -14,9 +14,52 @@ public extension SahhaStat {
     }
 }
 
+func displayStatTime(_ stat: SahhaStat) -> String {
+    let formatter = DateComponentsFormatter()
+    formatter.allowedUnits = [.hour, .minute]
+    formatter.unitsStyle = .short
+    let dateComponents = DateComponents(hour: 0, minute: Int(stat.value))
+    if let formattedString = formatter.string(from: dateComponents) {
+        return formattedString
+    } else {
+        return "\(stat.stringValue) \(stat.unit)"
+    }
+}
+
+func createStatView(stat: SahhaStat) -> some View {
+    VStack {
+        HStack {
+            Text(stat.category)
+            Spacer()
+        }
+        HStack {
+            Text(stat.type).bold()
+            Spacer()
+            if stat.type.hasPrefix("sleep") || stat.type.hasPrefix("exercise") {
+                Text(displayStatTime(stat))
+            } else {
+                Text("\(stat.stringValue) \(stat.unit)")
+            }
+        }
+    }.font(.caption)
+}
+
+struct StatsList: View {
+    
+    var stats: [SahhaStat]
+    
+    var body: some View {
+        List {
+            ForEach(stats, id: \.id) { stat in
+                createStatView(stat: stat)
+            }
+        }.scrollContentBackground(.hidden)
+    }
+}
+
 struct StatsView: View {
     
-    let sensors: [SahhaSensor] = [.steps, .floors_climbed, .heart_rate, .heart_rate_variability_sdnn, .vo2_max, .oxygen_saturation, .active_energy_burned, .sleep]
+    let sensors: [SahhaSensor] = SahhaSensor.allCases
     @State private var stats: [SahhaStat] = []
     @State private var selectionDate: Date = Date()
     
@@ -30,32 +73,6 @@ struct StatsView: View {
         }
     }
     
-    func displayStatTime(_ stat: SahhaStat) -> String {
-        let formatter = DateComponentsFormatter()
-        formatter.allowedUnits = [.hour, .minute]
-        formatter.unitsStyle = .short
-        let dateComponents = DateComponents(hour: 0, minute: Int(stat.value))
-        if let formattedString = formatter.string(from: dateComponents) {
-            return formattedString
-        } else {
-            return "\(stat.stringValue) \(stat.unit)"
-        }
-    }
-    
-    func createStatView(stat: SahhaStat) -> some View {
-        VStack {
-            HStack {
-                Text(stat.type)
-                Spacer()
-                if stat.type.hasPrefix("sleep") || stat.type.hasPrefix("exercise") {
-                    Text(displayStatTime(stat))
-                } else {
-                    Text("\(stat.stringValue) \(stat.unit)")
-                }
-            }
-        }.font(.caption)
-    }
-    
     var body: some View {
         VStack {
             DatePicker(
@@ -67,11 +84,7 @@ struct StatsView: View {
             
             Spacer()
             
-            List {
-                ForEach(stats, id: \.id) { stat in
-                    createStatView(stat: stat)
-                }
-            }.scrollContentBackground(.hidden)
+            StatsList(stats: stats)
             
         }.onAppear {
             getStats()

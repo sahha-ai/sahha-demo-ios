@@ -10,6 +10,7 @@ import SwiftUI
 import Sahha
 
 struct BiomarkerResponse: Codable {
+    var id: String = ""
     var category: String = ""
     var type: String = ""
     var unit: String = ""
@@ -118,7 +119,7 @@ struct BiomarkerView: View {
                     }
                 }
             }
-            ForEach(biomarkers, id: \.startDateTime) { biomarker in
+            ForEach(biomarkers, id: \.id) { biomarker in
                 Section {
                     VStack(alignment: .leading) {
                         Text("startDateTime")

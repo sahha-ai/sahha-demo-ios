@@ -49,9 +49,18 @@ struct SamplesView: View {
         }
     }
     
+    func createStatsList(sample: SahhaSample) -> some View {
+        NavigationLink {
+            StatsList(stats: sample.stats).navigationTitle("Stats")
+        } label: {
+            createSampleView(sample: sample)
+        }
+    }
+    
     func createSampleView(sample: SahhaSample) -> some View {
         VStack(alignment: .leading) {
             Text(sample.startDateTime.toString)
+            Text(sample.category)
             HStack {
                 Text(sample.type).bold()
                 Spacer()
@@ -83,11 +92,17 @@ struct SamplesView: View {
                     NavigationLink {
                         List {
                             ForEach(samples[key]!, id: \.id) { sample in
-                                createSampleView(sample: sample)
+                                if sample.stats.isEmpty {
+                                    createSampleView(sample: sample)
+                                } else {
+                                    createStatsList(sample: sample)
+                                }
                             }
                         }
                     } label: {
-                        Text(key.rawValue).font(.caption)
+                        VStack {
+                            Text(key.rawValue).font(.caption).bold()
+                        }
                     }
                 }
             }.scrollContentBackground(.hidden)
