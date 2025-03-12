@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Sahha
+import HealthKit
 
 public extension SahhaStat {
     var stringValue: String {
@@ -59,6 +60,7 @@ struct StatsList: View {
 
 struct StatsView: View {
     
+    private static let healthStore: HKHealthStore = HKHealthStore()
     let sensors: [SahhaSensor] = SahhaSensor.allCases
     @State private var stats: [SahhaStat] = []
     @State private var selectionDate: Date = Date()
@@ -81,6 +83,29 @@ struct StatsView: View {
                 displayedComponents: [.date]
             )
             .datePickerStyle(.graphical).padding()
+            
+            Spacer()
+            
+            Button("Refresh") {
+                
+                getStats()
+                
+                /*
+                let quantityType = HKQuantityType.quantityType(forIdentifier: .stepCount)
+                let quanitytUnit = HKUnit.count()
+                let quantityAmount = HKQuantity(unit: quanitytUnit, doubleValue: 100)
+                let now = Date()
+                let sample = HKQuantitySample(type: quantityType!, quantity: quantityAmount, start: now, end: now)
+                Self.healthStore.save(sample, withCompletion: { (success, error) in
+                    if success {
+                        getStats()
+                    }
+                  if (error != nil) {
+                      print(error.debugDescription)
+                  }
+                })
+                */
+            }
             
             Spacer()
             

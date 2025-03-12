@@ -86,6 +86,14 @@ struct SamplesView: View {
             .datePickerStyle(.graphical).padding()
             
             Spacer()
+                        
+            Button("Refresh") {
+                
+                getSamples()
+                
+            }
+            
+            Spacer()
             
             List {
                 ForEach(Array(samples.keys), id: \.self) { key in

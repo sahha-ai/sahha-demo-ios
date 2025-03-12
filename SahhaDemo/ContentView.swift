@@ -40,10 +40,11 @@ struct ContentView: View {
                         Text("Disabled").tag(2)
                         Text("Enabled").tag(3)
                     }.onAppear {
-                        Sahha.getSensorStatus([.steps, .sleep]) { error, status in
+                        Sahha.getSensorStatus([.steps, .sleep, .heart_rate, .exercise]) { error, status in
                             sensorStatus = status
                         }
                     }
+                    /*
                     if sensorStatus == .pending {
                         Button {
                             Sahha.enableSensors([.steps, .sleep]) { error, status in
@@ -66,6 +67,18 @@ struct ContentView: View {
                                 Text("Open App Settings")
                                 Spacer()
                             }
+                        }
+                    }*/
+                    Button {
+                        Sahha.enableSensors([.steps, .sleep, .heart_rate, .exercise]) { error, status in
+                            sensorStatus = status
+                            print("Sahha | Sensor status:", sensorStatus.description)
+                        }
+                    } label: {
+                        HStack {
+                            Spacer()
+                            Text("Enable")
+                            Spacer()
                         }
                     }
                 }
