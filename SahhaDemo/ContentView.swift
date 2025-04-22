@@ -71,6 +71,17 @@ struct ContentView: View {
                 }
                 Section(header: Text("DATA")) {
                     NavigationLink {
+                        WebView(url: URL(string: "https://sandbox-api.sahha.ai/api/v1/profile/integration/garmin/connect")!, profileToken: "profile " + (Sahha.profileToken ?? ""))
+                            .ignoresSafeArea()
+                            .navigationTitle("Garmin Connect")
+                            .navigationBarTitleDisplayMode(.inline)
+                    } label: {
+                        HStack {
+                            Image(systemName: "globe")
+                            Text("Garmin Connect")
+                        }
+                    }
+                    NavigationLink {
                         WebView(url: URL(string: "https://sandbox.webview.sahha.ai/app")!, profileToken: Sahha.profileToken)
                             .ignoresSafeArea()
                             .navigationTitle("Insights")
@@ -111,6 +122,14 @@ struct ContentView: View {
                         HStack {
                             Image(systemName: "clock.arrow.trianglehead.2.counterclockwise.rotate.90")
                             Text("Samples")
+                        }
+                    }
+                    NavigationLink {
+                        AppEventsView()
+                    } label: {
+                        HStack {
+                            Image(systemName: "iphone.motion")
+                            Text("App Events")
                         }
                     }
                 }
